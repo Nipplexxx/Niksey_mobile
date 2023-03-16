@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="editText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/normalText</item>
+        <item name="android:layout_margin">@dimen/app_margin</item>
+        <item name="android:padding">@dimen/appPadding</item>
+        <item name="android:autofillHints" />
+        <item name="android:maxLines">1</item>
+        <item name="minHeight">48dp</item>
+    </style>
+</resources>

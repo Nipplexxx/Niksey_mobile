@@ -1,0 +1,20 @@
+<resources>
+    <!-- Base application theme -->
+    <style name="Theme.LotlinMessenger" parent="MaterialDrawerTheme.Light">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@drawable/head</item>
+        <!-- Primary color profile picture -->
+
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:colorPrimaryDark">@drawable/head</item>
+        <item name="popupTheme">@style/actionMenu</item>
+    </style>
+</resources>

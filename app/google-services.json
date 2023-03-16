@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "231562212563",
+    "project_id": "kotlincollibri",
+    "storage_bucket": "kotlincollibri.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231562212563:android:c591031aa81939ec20d026",
+        "android_client_info": {
+          "package_name": "com.example.lotlinmessenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "231562212563-9ebfoc4roc0at58thcd2qljb60un74e3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe7uaXJcHomB-WvcCno-82_vjqRIDbzEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "231562212563-9ebfoc4roc0at58thcd2qljb60un74e3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
