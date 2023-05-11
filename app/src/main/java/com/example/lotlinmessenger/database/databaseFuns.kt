@@ -90,7 +90,6 @@ fun updatePhonesToDatabase(arrayContacts: ArrayList<CommonModel>) {
                                         it.message.toString()
                                     )
                                 }
-
                             REF_DATABASE_ROOT.child(
                                 NODE_PHONES_CONTACTS
                             ).child(CURRENT_UID)
@@ -348,12 +347,9 @@ fun createGroupToDatabase(
         mapMembers[it.id] = USER_MEMBER
     }
     mapMembers[CURRENT_UID] = USER_CREATOR
-
     mapData[NODE_MEMBERS] = mapMembers
-
     path.updateChildren(mapData)
         .addOnSuccessListener {
-
             if (uri != Uri.EMPTY) {
                 putFileToStorage(uri, pathStorage) {
                     getUrlFromStorage(pathStorage) {
@@ -371,8 +367,6 @@ fun createGroupToDatabase(
 
         }
         .addOnFailureListener { showToast(it.message.toString()) }
-
-
 }
 
 fun addGroupsToMainList(
@@ -391,14 +385,11 @@ fun addGroupsToMainList(
     path.child(CURRENT_UID).child(map[CHILD_ID].toString()).updateChildren(map)
         .addOnSuccessListener { function() }
         .addOnFailureListener { showToast(it.message.toString()) }
-
 }
 
 fun sendMessageToGroup(message: String, groupID: String, typeText: String, function: () -> Unit) {
-
     var refMessages = "$NODE_GROUPS/$groupID/$NODE_MESSAGES"
     val messageKey = REF_DATABASE_ROOT.child(refMessages).push().key
-
     val mapMessage = hashMapOf<String, Any>()
     mapMessage[CHILD_FROM] =
         CURRENT_UID
@@ -412,5 +403,4 @@ fun sendMessageToGroup(message: String, groupID: String, typeText: String, funct
         .updateChildren(mapMessage)
         .addOnSuccessListener { function() }
         .addOnFailureListener { showToast(it.message.toString()) }
-
 }

@@ -4,10 +4,9 @@ import com.example.lotlinmessenger.database.*
 
 enum class AppStates(val state: String) {
     /* Класс перечисление состояний приложения*/
-
-    ONLINE("онлайн"),
-    OFFLINE("офлайн"),
-    TYPING("печатает");
+    ONLINE("online"),
+    OFFLINE("offline"),
+    TYPING("prints");
 
     companion object {
         fun updateState(appStates: AppStates) {

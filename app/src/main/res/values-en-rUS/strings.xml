@@ -1,6 +1,6 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Collibri</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="settings_default_username">Andrey Petrov</string>
     <string name="settings_default_status">Online</string>
@@ -43,7 +43,7 @@
     <string name="offline">offline</string>
     <string name="prints">prints</string>
 
-    <plurals name="count_members">
+    <plurals name="count_members" tools:ignore="UnusedQuantity">
         <item quantity="one">%d participant</item>
         <item quantity="few">%d participant</item>
         <item quantity="many">%d participants</item>

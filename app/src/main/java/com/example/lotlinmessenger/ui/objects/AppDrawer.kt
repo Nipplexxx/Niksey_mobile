@@ -25,6 +25,8 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader
 import com.mikepenz.materialdrawer.util.DrawerImageLoader
 
+private const val s = "Создать группу"
+
 class AppDrawer {
     private lateinit var mDrawer: Drawer
     private lateinit var mHeader: AccountHeader
@@ -100,13 +102,13 @@ class AppDrawer {
                 //Menu block 1
                 PrimaryDrawerItem().withIdentifier(100)
                     .withIconTintingEnabled(true)
-                    .withName("Создать группу")
+                    .withName(R.string.create_a_group)
                     .withSelectable(false)
                     .withIcon(R.drawable.img_group),
                 //Menu block 2
                 PrimaryDrawerItem().withIdentifier(101)
                     .withIconTintingEnabled(true)
-                    .withName("Мои контакты")
+                    .withName(R.string.my_contacts)
                     .withSelectable(false)
                     .withIcon(R.drawable.img_personal_chat),
                 //Menu lines
@@ -114,13 +116,13 @@ class AppDrawer {
                 //Menu block 3
                 PrimaryDrawerItem().withIdentifier(104)
                     .withIconTintingEnabled(true)
-                    .withName("Личный кабинет")
+                    .withName(R.string.personal_account)
                     .withSelectable(false)
                     .withIcon(R.drawable.img_handyman),
                 //Menu block 4
                 PrimaryDrawerItem().withIdentifier(105)
                     .withIconTintingEnabled(true)
-                    .withName("Информация")
+                    .withName(R.string.information)
                     .withSelectable(false)
                     .withIcon(R.drawable.img_info)
             ).withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener{

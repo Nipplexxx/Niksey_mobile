@@ -22,7 +22,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
 
     override fun onResume() {
         super.onResume()
-        APP_ACTIVITY.title = "Личный кабинет"
+        APP_ACTIVITY.title = getString(R.string.personal_account)
         setHasOptionsMenu(true)
         initFields()
         KeyboardUtil.hideKeyboard(activity)

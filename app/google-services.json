@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "231562212563",
+    "firebase_url": "https://kotlincollibri-default-rtdb.firebaseio.com",
     "project_id": "kotlincollibri",
     "storage_bucket": "kotlincollibri.appspot.com"
   },

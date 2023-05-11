@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">Collibri</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="settings_default_username">Andrey Petrov</string>
+    <string name="hello_blank_fragment">Привет, пустой фрагмент</string>
+    <string name="settings_default_username">Андрей Петров</string>
     <string name="settings_default_status">В сети</string>
     <string name="settings_text_account">Аккаунт</string>
     <string name="settings_default_namber">89633699669</string>
@@ -19,7 +19,7 @@
     <string name="register_text_we_sent">Мы отправили смс с кодом проверки на Ваш телефон</string>
     <string name="register_hint_default_code">▬ ▬ ▬ ▬ ▬ ▬</string>
     <string name="register_title_your_phone">Ваш телефон</string>
-    <string name="switching_to_another_window">Switching to another window</string>
+    <string name="switching_to_another_window">Переключение на другое окно</string>
     <string name="register_toast_enter_phone">Введите номер телефона</string>
     <string name="number_phone">+71234567890</string>
     <string name="btn_text_next">Далее</string>
@@ -27,12 +27,22 @@
     <string name="settings_hint_surname">Фамилия</string>
     <string name="settings_toast_name_is_empty">Имя не может быть пустым</string>
     <string name="settings_data_update">Данные обновлены</string>
-    <string name="settings_hint_input_username">username</string>
+    <string name="settings_hint_input_username">имя пользователя</string>
     <string name="toast_data_update">Данные обновлены</string>
-    <string name="settings_input_bio">bio</string>
+    <string name="settings_input_bio">Информация о себе</string>
     <string name="clear_chat">Очистить чат</string>
     <string name="delete_chat">Удалить чат</string>
     <string name="create_group">Создать группу</string>
+    <string name="personal_account">Личный кабинет</string>
+    <string name="information">Информация</string>
+    <string name="my_contacts">Мои контакты</string>
+    <string name="create_a_group">Создать группу</string>
+    <string name="contacts">Контакты</string>
+    <string name="add_a_participant">Добавить участника</string>
+    <string name="add_participant">Добавьте участника</string>
+    <string name="online">онлайн</string>
+    <string name="offline">офлайн</string>
+    <string name="prints">печатает</string>
 
     <plurals name="count_members">
         <item quantity="one">%d участник</item>

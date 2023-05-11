@@ -41,8 +41,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-
     private fun initFunc() {
         /* Функция инициализирует функциональность приложения */
         setSupportActionBar(mToolbar)
