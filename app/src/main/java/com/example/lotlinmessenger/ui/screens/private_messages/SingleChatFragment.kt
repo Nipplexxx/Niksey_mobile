@@ -241,13 +241,16 @@ class SingleChatFragment(private var contact: CommonModel) :
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         /* Слушатель выбора пунктов выпадающего меню */
         when (item.itemId) {
-
             R.id.menu_clear_chat -> clearChat(contact.id){
-                showToast("Чат очищен")
+                showToast(getString(R.string.chat_cleared))
+                replaceFragment(MainListFragment())
+            }
+            R.id.menu_remove_chat -> removeChat(contact.id){
+                showToast(getString(R.string.chat_remove))
                 replaceFragment(MainListFragment())
             }
             R.id.menu_delete_chat -> deleteChat(contact.id){
-                showToast("Чат удален")
+                showToast(getString(R.string.chat_deleted))
                 replaceFragment(MainListFragment())
             }
         }

@@ -30,7 +30,8 @@
     <string name="toast_data_update">Data updated</string>
     <string name="settings_input_bio">Write a little about yourself</string>
     <string name="clear_chat">Clear the chat</string>
-    <string name="delete_chat">Delete Chat</string>
+    <string name="remove_chat">Remove the chat</string>
+    <string name="delete_chat">Delete the chat</string>
     <string name="create_group">Create a group</string>
     <string name="personal_account">Personal account</string>
     <string name="information">Information</string>
@@ -39,9 +40,9 @@
     <string name="contacts">Contacts</string>
     <string name="add_a_participant">Add a participant</string>
     <string name="add_participant">Add a participant</string>
-    <string name="online">online</string>
-    <string name="offline">offline</string>
-    <string name="prints">prints</string>
+    <string name="chat_cleared">Chat cleared</string>
+    <string name="chat_deleted">Chat deleted</string>
+    <string name="chat_remove">Chat remove</string>
 
     <plurals name="count_members">
         <item quantity="one">%d participant</item>

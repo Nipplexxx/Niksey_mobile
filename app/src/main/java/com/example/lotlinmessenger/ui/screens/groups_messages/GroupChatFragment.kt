@@ -263,11 +263,15 @@ class GroupChatFragment(private val group: CommonModel) :
         /* Слушатель выбора пунктов выпадающего меню */
         when (item.itemId) {
             R.id.menu_clear_chat -> clearChatGroup(group.id){
-                showToast("Чат очищен")
+                showToast(getString(R.string.chat_cleared))
                 replaceFragment(MainListFragment())
             }
-            R.id.menu_delete_chat -> deleteChat(group.id){
-                showToast("Чат удален")
+            R.id.menu_remove_chat -> removeChatGroup(group.id){
+                showToast(getString(R.string.chat_remove))
+                replaceFragment(MainListFragment())
+            }
+            R.id.menu_delete_chat -> deleteChatGroup(group.id){
+                showToast(getString(R.string.chat_deleted))
                 replaceFragment(MainListFragment())
             }
         }

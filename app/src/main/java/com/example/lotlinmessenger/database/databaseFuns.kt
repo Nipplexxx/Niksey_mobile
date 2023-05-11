@@ -296,6 +296,16 @@ fun saveToMainList(id: String, type: String) {
 }
 
 fun deleteChat(id: String, function: () -> Unit) {
+    REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID).child(id)
+        .removeValue()
+        .addOnFailureListener { }
+        .addOnSuccessListener {
+            REF_DATABASE_ROOT.child(NODE_MESSAGES).child(id)
+                .child(CURRENT_UID)
+                .removeValue()
+                .addOnSuccessListener { function() }
+        }
+        .addOnFailureListener { showToast(it.message.toString()) }
     REF_DATABASE_ROOT.child(NODE_MAIN_LIST).child(CURRENT_UID).child(id).removeValue()
         .addOnFailureListener { showToast(it.message.toString()) }
         .addOnSuccessListener { function() }
@@ -314,8 +324,18 @@ fun clearChat(id: String, function: () -> Unit) {
         .addOnFailureListener { showToast(it.message.toString()) }
 }
 
-fun clearChatGroup(id: String, function: () -> Unit) {
-    REF_DATABASE_ROOT.child(NODE_GROUPS).child(NODE_MESSAGES).child(CURRENT_UID).child(id)
+fun removeChat(id: String, function: () -> Unit) {
+    REF_DATABASE_ROOT.child(NODE_MAIN_LIST).child(CURRENT_UID).child(id).removeValue()
+        .addOnFailureListener { showToast(it.message.toString()) }
+        .addOnSuccessListener { function() }
+}
+
+fun deleteChatGroup(id: String, function: () -> Unit) {
+    REF_DATABASE_ROOT.child(NODE_MAIN_LIST).child(CURRENT_UID).child(id)
+        .removeValue()
+        .addOnFailureListener { showToast(it.message.toString()) }
+        .addOnSuccessListener { function() }
+    REF_DATABASE_ROOT.child(NODE_GROUPS).child(id)
         .removeValue()
         .addOnFailureListener { showToast(it.message.toString()) }
         .addOnSuccessListener {
@@ -327,6 +347,23 @@ fun clearChatGroup(id: String, function: () -> Unit) {
         .addOnFailureListener { showToast(it.message.toString()) }
 }
 
+fun clearChatGroup(id: String, function: () -> Unit) {
+    REF_DATABASE_ROOT.child(NODE_GROUPS).child(id).child(NODE_MESSAGES)
+        .removeValue()
+        .addOnFailureListener { showToast(it.message.toString()) }
+        .addOnSuccessListener {
+            REF_DATABASE_ROOT.child(NODE_GROUPS).child(id).child(NODE_MESSAGES)
+                .child(CURRENT_UID)
+                .removeValue()
+                .addOnSuccessListener { function() }
+        }
+        .addOnFailureListener { showToast(it.message.toString()) }
+}
+fun removeChatGroup(id: String, function: () -> Unit) {
+    REF_DATABASE_ROOT.child(NODE_MAIN_LIST).child(CURRENT_UID).child(id).removeValue()
+        .addOnFailureListener { showToast(it.message.toString()) }
+        .addOnSuccessListener { function() }
+}
 fun createGroupToDatabase(
     nameGroup: String,
     uri: Uri,

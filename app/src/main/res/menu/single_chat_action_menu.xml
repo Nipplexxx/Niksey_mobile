@@ -11,6 +11,11 @@
                     android:title="@string/clear_chat"
                     app:showAsAction="never" />
                 <item
+                    android:id="@+id/menu_remove_chat"
+                    android:icon="@drawable/img_delete"
+                    android:title="@string/remove_chat"
+                    app:showAsAction="never" />
+                <item
                     android:id="@+id/menu_delete_chat"
                     android:icon="@drawable/img_delete"
                     android:title="@string/delete_chat"
