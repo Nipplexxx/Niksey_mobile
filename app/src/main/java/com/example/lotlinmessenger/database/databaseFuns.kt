@@ -238,10 +238,9 @@ fun sendMessageAsFile(
         .addOnFailureListener { showToast(it.message.toString()) }
 }
 
-fun getMessageKey(id: String) = REF_DATABASE_ROOT.child(
-    NODE_MESSAGES
-).child(CURRENT_UID)
-    .child(id).push().key.toString()
+fun getMessageKeyPrivate(id: String) = REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID).child(id).push().key.toString()
+
+fun getMessageKeyGroup(id: String) = REF_DATABASE_ROOT.child(NODE_GROUPS).child(id).child(NODE_MESSAGES).push().key.toString()
 
 fun uploadFileToStorage(
     uri: Uri,

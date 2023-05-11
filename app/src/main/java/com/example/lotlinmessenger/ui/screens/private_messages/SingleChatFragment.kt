@@ -31,7 +31,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 
 class SingleChatFragment(private var contact: CommonModel) :
-    BaseFragment(R.layout.fragment_single_chat) {
+    BaseFragment(R.layout.fragment_chat) {
 
     private lateinit var mListenerInfoToolbar: AppValueEventListener
     private lateinit var mReceivingUser: UserModel
@@ -58,49 +58,52 @@ class SingleChatFragment(private var contact: CommonModel) :
 
     @SuppressLint("ClickableViewAccessibility")
     private fun initFields() {
-        mBottomSheetBehavior= BottomSheetBehavior.from(view?.findViewById(R.id.bottom_sheet_choice) !!)
-        mBottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
         setHasOptionsMenu(true)
+        mBottomSheetBehavior= BottomSheetBehavior.from(view?.findViewById(R.id.bottom_sheet_choice)!!)
+        mBottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
         mAppVoiceRecorder = AppVoiceRecorder()
         mSwipeRefreshLayout = view?.findViewById(R.id.chat_swipe_refresh)!!
         mLayoutManager = LinearLayoutManager(this.context)
-        view?.findViewById<EditText>(R.id.chat_input_message)
-            ?.addTextChangedListener(AppTextWatcher {
-                val string = view?.findViewById<EditText>(R.id.chat_input_message)?.text.toString()
-                if (string.isEmpty()) {
-                    view?.findViewById<ImageView>(R.id.chat_btn_send_message)?.visibility =
-                        View.GONE
-                    view?.findViewById<ImageView>(R.id.chat_btn_voice)?.visibility = View.VISIBLE
-                } else {
-                    view?.findViewById<ImageView>(R.id.chat_btn_send_message)?.visibility =
-                        View.VISIBLE
-                    view?.findViewById<ImageView>(R.id.chat_btn_voice)?.visibility = View.GONE
-                }
-            })
-            CoroutineScope(Dispatchers.IO).launch {
+        view?.findViewById<EditText>(R.id.chat_input_message)?.addTextChangedListener(AppTextWatcher {
+            val string = view?.findViewById<EditText>(R.id.chat_input_message)?.text.toString()
+            if (string.isEmpty() || string == getString(R.string.record)) {
+                view?.findViewById<ImageView>(R.id.chat_btn_send_message)?.visibility = View.GONE
+                view?.findViewById<ImageView>(R.id.chat_btn_attach)?.visibility = View.VISIBLE
+                view?.findViewById<ImageView>(R.id.chat_btn_voice)?.visibility = View.VISIBLE
+            } else {
+                view?.findViewById<ImageView>(R.id.chat_btn_send_message)?.visibility = View.VISIBLE
+                view?.findViewById<ImageView>(R.id.chat_btn_attach)?.visibility = View.GONE
+                view?.findViewById<ImageView>(R.id.chat_btn_voice)?.visibility = View.GONE
+            }
+        })
+
+        view?.findViewById<ImageView>(R.id.chat_btn_attach)?.setOnClickListener { attach() }
+
+        CoroutineScope(Dispatchers.IO).launch {
             view?.findViewById<ImageView>(R.id.chat_btn_voice)?.setOnTouchListener { v, event ->
                 if (checkPermission(RECORD_AUDIO)) {
                     if (event.action == MotionEvent.ACTION_DOWN) {
+                        view?.findViewById<EditText>(R.id.chat_input_message)?.setText(getString(R.string.record))
                         view?.findViewById<ImageView>(R.id.chat_btn_voice)?.setColorFilter(
                             ContextCompat.getColor(
                                 APP_ACTIVITY,
-                                R.color.teal_200
+                                R.color.teal_700
                             )
                         )
-                        val messageKey = getMessageKey(contact.id)
+                        val messageKey = getMessageKeyGroup(contact.id)
                         mAppVoiceRecorder.startRecord(messageKey)
                     } else if (event.action == MotionEvent.ACTION_UP) {
-                            view?.findViewById<ImageView>(R.id.chat_btn_voice)?.colorFilter = null
-                            mAppVoiceRecorder.stopRecord { file, messageKey ->
-                                uploadFileToStorage(Uri.fromFile(file),messageKey, contact.id, TYPE_MESSAGE_VOICE)
-                                mSmoothScrollToPosition = true
-                            }
+                        view?.findViewById<EditText>(R.id.chat_input_message)?.setText("")
+                        view?.findViewById<ImageView>(R.id.chat_btn_voice)?.colorFilter = null
+                        mAppVoiceRecorder.stopRecord { file, messageKey ->
+                            uploadFileToStorage(Uri.fromFile(file),messageKey,contact.id, TYPE_MESSAGE_VOICE)
+                            mSmoothScrollToPosition = true
                         }
                     }
-                    true
                 }
+                true
             }
-        view?.findViewById<ImageView>(R.id.chat_btn_attach)?.setOnClickListener { attach() }
+        }
     }
 
     private fun attach() {
@@ -121,7 +124,7 @@ class SingleChatFragment(private var contact: CommonModel) :
             when(requestCode){
                 PICK_FILE_REQUEST_CODE -> {
                     val uri = data.data
-                    val messageKey = getMessageKey(contact.id)
+                    val messageKey = getMessageKeyPrivate(contact.id)
                     val filename = getFilenameFromUri(uri!!)
                     uploadFileToStorage(uri,messageKey,contact.id, TYPE_MESSAGE_FILE,filename)
                     uri?.let { uploadFileToStorage(it,messageKey,contact.id, TYPE_MESSAGE_FILE) }

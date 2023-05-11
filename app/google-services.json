@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "231562212563",
-    "firebase_url": "https://kotlincollibri-default-rtdb.firebaseio.com",
-    "project_id": "kotlincollibri",
-    "storage_bucket": "kotlincollibri.appspot.com"
+    "project_number": "21659621122",
+    "firebase_url": "https://kollibri-2b50c-default-rtdb.firebaseio.com",
+    "project_id": "kollibri-2b50c",
+    "storage_bucket": "kollibri-2b50c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:231562212563:android:c591031aa81939ec20d026",
+        "mobilesdk_app_id": "1:21659621122:android:580645d21353264b3e941b",
         "android_client_info": {
           "package_name": "com.example.lotlinmessenger"
         }
       },
       "oauth_client": [
         {
-          "client_id": "231562212563-9ebfoc4roc0at58thcd2qljb60un74e3.apps.googleusercontent.com",
+          "client_id": "21659621122-19b87a53l4u75t3m4qjmb6b9j6sb3cop.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDe7uaXJcHomB-WvcCno-82_vjqRIDbzEQ"
+          "current_key": "AIzaSyC0ziV0lyVXKWwUa5C9S4x-f03S2WtiWGw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "231562212563-9ebfoc4roc0at58thcd2qljb60un74e3.apps.googleusercontent.com",
+              "client_id": "21659621122-19b87a53l4u75t3m4qjmb6b9j6sb3cop.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

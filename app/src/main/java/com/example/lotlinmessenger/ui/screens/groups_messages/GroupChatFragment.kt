@@ -30,7 +30,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 
 class GroupChatFragment(private val group: CommonModel) :
-    BaseFragment(R.layout.fragment_single_chat) {
+    BaseFragment(R.layout.fragment_chat) {
 
     private lateinit var mListenerInfoToolbar: AppValueEventListener
     private lateinit var mReceivingUser: UserModel
@@ -89,7 +89,7 @@ class GroupChatFragment(private val group: CommonModel) :
                                 R.color.teal_700
                             )
                         )
-                        val messageKey = getMessageKey(group.id)
+                        val messageKey = getMessageKeyGroup(group.id)
                         mAppVoiceRecorder.startRecord(messageKey)
                     } else if (event.action == MotionEvent.ACTION_UP) {
                         view?.findViewById<EditText>(R.id.chat_input_message)?.setText("")
@@ -117,7 +117,6 @@ class GroupChatFragment(private val group: CommonModel) :
         intent.type = "*/*"
         startActivityForResult(intent, PICK_FILE_REQUEST_CODE)
     }
-
 
     private fun attachImage() {
 
@@ -226,13 +225,13 @@ class GroupChatFragment(private val group: CommonModel) :
         if (data!=null){
             when(requestCode){
                 CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE -> {
-                    val messageKey = getMessageKey(group.id)
+                    val messageKey = getMessageKeyGroup(group.id)
                     mSmoothScrollToPosition = true
                 }
 
                 PICK_FILE_REQUEST_CODE -> {
                     val uri = data.data
-                    val messageKey = getMessageKey(group.id)
+                    val messageKey = getMessageKeyGroup(group.id)
                     val filename = getFilenameFromUri(uri!!)
                     uploadFileToStorage(uri,messageKey,group.id, TYPE_MESSAGE_FILE,filename)
                     mSmoothScrollToPosition = true
