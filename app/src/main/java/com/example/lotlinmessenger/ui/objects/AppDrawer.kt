@@ -6,9 +6,9 @@ import android.view.View
 import android.widget.ImageView
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.lotlinmessenger.R
-import com.example.lotlinmessenger.ui.screens.contacts.ContactsFragment
-import com.example.lotlinmessenger.ui.screens.InformationFragment
-import com.example.lotlinmessenger.ui.screens.groups.AddContactsFragment
+import com.example.lotlinmessenger.ui.screens.phone_book.ContactsFragment
+import com.example.lotlinmessenger.ui.screens.other_fragment.InformationFragment
+import com.example.lotlinmessenger.ui.screens.groups_messages.AddContactsFragment
 import com.example.lotlinmessenger.ui.screens.settings.SettingsFragment
 import com.example.lotlinmessenger.utillits.APP_ACTIVITY
 import com.example.lotlinmessenger.database.USER

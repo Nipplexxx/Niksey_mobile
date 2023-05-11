@@ -1,4 +1,4 @@
-package com.example.lotlinmessenger.ui.screens.single_chat
+package com.example.lotlinmessenger.ui.screens.groups_messages
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -6,7 +6,7 @@ import com.example.lotlinmessenger.ui.fragments.message_recycler_view.view_holde
 import com.example.lotlinmessenger.ui.fragments.message_recycler_view.view_holders.MessageHolder
 import com.example.lotlinmessenger.ui.fragments.message_recycler_view.views.MessageView
 
-class SingleChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class GroupChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var mListMessagesCache = mutableListOf<MessageView>()
     private var mListHolders = mutableListOf<MessageHolder>()

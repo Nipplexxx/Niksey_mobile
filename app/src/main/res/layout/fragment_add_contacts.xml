@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.screens.contacts.ContactsFragment">
+    tools:context=".ui.screens.phone_book.ContactsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/add_contacts_recycle_view"

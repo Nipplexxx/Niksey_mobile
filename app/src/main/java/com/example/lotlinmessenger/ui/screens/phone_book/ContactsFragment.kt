@@ -1,4 +1,4 @@
-package com.example.lotlinmessenger.ui.screens.contacts
+package com.example.lotlinmessenger.ui.screens.phone_book
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lotlinmessenger.R
 import com.example.lotlinmessenger.database.*
 import com.example.lotlinmessenger.models.CommonModel
-import com.example.lotlinmessenger.ui.screens.base.BaseFragment
-import com.example.lotlinmessenger.ui.screens.single_chat.SingleChatFragment
+import com.example.lotlinmessenger.ui.screens.base_fragment.BaseFragment
+import com.example.lotlinmessenger.ui.screens.private_messages.SingleChatFragment
 import com.example.lotlinmessenger.utillits.*
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
-import com.mikepenz.materialize.util.KeyboardUtil
 import de.hdodenhof.circleimageview.CircleImageView
 
 

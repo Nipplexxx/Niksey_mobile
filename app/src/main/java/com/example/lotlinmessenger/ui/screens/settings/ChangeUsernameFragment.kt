@@ -3,7 +3,7 @@ package com.example.lotlinmessenger.ui.screens.settings
 import android.widget.EditText
 import com.example.lotlinmessenger.R
 import com.example.lotlinmessenger.database.*
-import com.example.lotlinmessenger.ui.screens.base.BaseChangeFragment
+import com.example.lotlinmessenger.ui.screens.base_fragment.BaseChangeFragment
 import com.example.lotlinmessenger.utillits.*
 import java.util.*
 

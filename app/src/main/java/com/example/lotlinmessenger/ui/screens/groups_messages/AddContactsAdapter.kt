@@ -1,4 +1,4 @@
-package com.example.lotlinmessenger.ui.screens.groups
+package com.example.lotlinmessenger.ui.screens.groups_messages
 
 import android.view.LayoutInflater
 import android.view.View

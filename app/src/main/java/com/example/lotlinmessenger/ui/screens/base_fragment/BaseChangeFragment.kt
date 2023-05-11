@@ -1,4 +1,4 @@
-package com.example.lotlinmessenger.ui.screens.base
+package com.example.lotlinmessenger.ui.screens.base_fragment
 
 import android.view.Menu
 import android.view.MenuInflater

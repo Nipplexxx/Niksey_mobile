@@ -1,11 +1,11 @@
-package com.example.lotlinmessenger.ui.screens.groups
+package com.example.lotlinmessenger.ui.screens.groups_messages
 
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lotlinmessenger.R
 import com.example.lotlinmessenger.database.*
 import com.example.lotlinmessenger.models.CommonModel
-import com.example.lotlinmessenger.ui.screens.base.BaseFragment
+import com.example.lotlinmessenger.ui.screens.base_fragment.BaseFragment
 import com.example.lotlinmessenger.utillits.*
 import com.mikepenz.materialize.util.KeyboardUtil.hideKeyboard
 

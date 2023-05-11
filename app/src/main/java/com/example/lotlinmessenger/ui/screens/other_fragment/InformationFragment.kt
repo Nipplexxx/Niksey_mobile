@@ -1,7 +1,7 @@
-package com.example.lotlinmessenger.ui.screens
+package com.example.lotlinmessenger.ui.screens.other_fragment
 
 import com.example.lotlinmessenger.R
-import com.example.lotlinmessenger.ui.screens.base.BaseFragment
+import com.example.lotlinmessenger.ui.screens.base_fragment.BaseFragment
 import com.example.lotlinmessenger.utillits.APP_ACTIVITY
 
 

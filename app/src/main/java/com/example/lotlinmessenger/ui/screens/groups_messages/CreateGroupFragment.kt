@@ -1,4 +1,4 @@
-package com.example.lotlinmessenger.ui.screens.groups
+package com.example.lotlinmessenger.ui.screens.groups_messages
 
 import android.net.Uri
 import android.widget.EditText
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lotlinmessenger.R
 import com.example.lotlinmessenger.database.createGroupToDatabase
 import com.example.lotlinmessenger.models.CommonModel
-import com.example.lotlinmessenger.ui.screens.base.BaseFragment
+import com.example.lotlinmessenger.ui.screens.base_fragment.BaseFragment
 import com.example.lotlinmessenger.ui.screens.main_list.MainListFragment
 import com.example.lotlinmessenger.utillits.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton

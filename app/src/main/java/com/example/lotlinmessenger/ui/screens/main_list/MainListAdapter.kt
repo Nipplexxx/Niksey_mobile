@@ -7,8 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lotlinmessenger.R
 import com.example.lotlinmessenger.models.CommonModel
-import com.example.lotlinmessenger.ui.screens.groups.GroupChatFragment
-import com.example.lotlinmessenger.ui.screens.single_chat.SingleChatFragment
+import com.example.lotlinmessenger.ui.screens.groups_messages.GroupChatFragment
+import com.example.lotlinmessenger.ui.screens.private_messages.SingleChatFragment
 import com.example.lotlinmessenger.utillits.TYPE_CHAT
 import com.example.lotlinmessenger.utillits.TYPE_GROUP
 import com.example.lotlinmessenger.utillits.downloadAndSetImage

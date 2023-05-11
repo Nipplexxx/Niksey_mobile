@@ -4,7 +4,7 @@ import android.widget.EditText
 import com.example.lotlinmessenger.R
 import com.example.lotlinmessenger.database.USER
 import com.example.lotlinmessenger.database.setNameToDatabase
-import com.example.lotlinmessenger.ui.screens.base.BaseChangeFragment
+import com.example.lotlinmessenger.ui.screens.base_fragment.BaseChangeFragment
 import com.example.lotlinmessenger.utillits.*
 
 @Suppress("DEPRECATION")

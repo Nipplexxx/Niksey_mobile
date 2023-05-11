@@ -12,7 +12,7 @@ import com.example.lotlinmessenger.MainActivity
 import com.example.lotlinmessenger.R
 import com.example.lotlinmessenger.database.AUTH
 import com.example.lotlinmessenger.database.USER
-import com.example.lotlinmessenger.ui.screens.base.BaseFragment
+import com.example.lotlinmessenger.ui.screens.base_fragment.BaseFragment
 import com.example.lotlinmessenger.utillits.*
 import com.mikepenz.materialize.util.KeyboardUtil
 import de.hdodenhof.circleimageview.CircleImageView
