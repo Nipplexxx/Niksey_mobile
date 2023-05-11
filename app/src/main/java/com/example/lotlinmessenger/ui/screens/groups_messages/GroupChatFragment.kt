@@ -65,7 +65,7 @@ class GroupChatFragment(private val group: CommonModel) :
         mLayoutManager = LinearLayoutManager(this.context)
         view?.findViewById<EditText>(R.id.chat_input_message)?.addTextChangedListener(AppTextWatcher {
             val string = view?.findViewById<EditText>(R.id.chat_input_message)?.text.toString()
-            if (string.isEmpty() || string == "Запись") {
+            if (string.isEmpty() || string == getString(R.string.record)) {
                 view?.findViewById<ImageView>(R.id.chat_btn_send_message)?.visibility = View.GONE
                 view?.findViewById<ImageView>(R.id.chat_btn_attach)?.visibility = View.VISIBLE
                 view?.findViewById<ImageView>(R.id.chat_btn_voice)?.visibility = View.VISIBLE
@@ -82,7 +82,7 @@ class GroupChatFragment(private val group: CommonModel) :
             view?.findViewById<ImageView>(R.id.chat_btn_voice)?.setOnTouchListener { v, event ->
                 if (checkPermission(RECORD_AUDIO)) {
                     if (event.action == MotionEvent.ACTION_DOWN) {
-                        view?.findViewById<EditText>(R.id.chat_input_message)?.setText("Запись")
+                        view?.findViewById<EditText>(R.id.chat_input_message)?.setText(getString(R.string.record))
                         view?.findViewById<ImageView>(R.id.chat_btn_voice)?.setColorFilter(
                             ContextCompat.getColor(
                                 APP_ACTIVITY,
@@ -200,7 +200,7 @@ class GroupChatFragment(private val group: CommonModel) :
             mSmoothScrollToPosition = true
             val message = view?.findViewById<EditText>(R.id.chat_input_message)?.text.toString()
             if (message.isEmpty()) {
-                showToast("ВВедите сообщение")
+                showToast(getString(R.string.enter_a_message))
             } else sendMessageToGroup(
                 message,
                 group.id,

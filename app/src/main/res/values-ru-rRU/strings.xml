@@ -44,6 +44,10 @@
     <string name="chat_cleared">Чат очищен</string>
     <string name="chat_deleted">Чат удален</string>
     <string name="chat_remove">Чат убран</string>
+    <string name="enter_a_message">Введите сообщение</string>
+    <string name="record">Запись</string>
+    <string name="enter_a_name">Введите имя</string>
+    <string name="welcome">Добро пожаловать</string>
 
     <plurals name="count_members">
         <item quantity="one">%d участник</item>

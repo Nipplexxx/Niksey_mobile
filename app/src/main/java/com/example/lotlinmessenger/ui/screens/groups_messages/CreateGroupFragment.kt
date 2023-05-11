@@ -31,7 +31,7 @@ class CreateGroupFragment(private var listContacts:List<CommonModel>)
         view?.findViewById<FloatingActionButton>(R.id.create_group_btn_complete)?.setOnClickListener {
             val nameGroup = view?.findViewById<EditText>(R.id.create_group_input_name)?.text.toString()
             if (nameGroup.isEmpty()){
-                showToast("Введите имя")
+                showToast(getString(R.string.enter_a_name))
             } else {
                 createGroupToDatabase(nameGroup,mUri,listContacts){
                     replaceFragment(MainListFragment())

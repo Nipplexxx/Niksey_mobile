@@ -23,7 +23,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        showToast("Добро пожаловать")
+                        showToast(getString(R.string.welcome))
                         restartActivity()
                     } else showToast(task.exception?.message.toString())
                 }

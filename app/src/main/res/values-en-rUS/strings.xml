@@ -43,6 +43,10 @@
     <string name="chat_cleared">Chat cleared</string>
     <string name="chat_deleted">Chat deleted</string>
     <string name="chat_remove">Chat remove</string>
+    <string name="enter_a_message">Enter a message</string>
+    <string name="record">Record</string>
+    <string name="enter_a_name">Enter a name</string>
+    <string name="welcome">Welcome</string>
 
     <plurals name="count_members" tools:ignore="UnusedQuantity">
         <item quantity="one">%d participant</item>

@@ -27,7 +27,6 @@ class MainListFragment : Fragment(R.layout.fragment_main_list) {
     private fun initRecyclerView() {
         mRecyclerView = view?.findViewById(R.id.main_list_recycle_view) !!
         mAdapter = MainListAdapter()
-
         // 1 запрос
         mRefMainList.addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot ->
             mListItems = dataSnapshot.children.map { it.getCommonModel() }
@@ -37,10 +36,8 @@ class MainListFragment : Fragment(R.layout.fragment_main_list) {
                     TYPE_CHAT -> showChat(model)
                     TYPE_GROUP -> showGroup(model)
                 }
-
             }
         })
-
         mRecyclerView.adapter = mAdapter
     }
 
@@ -49,7 +46,6 @@ class MainListFragment : Fragment(R.layout.fragment_main_list) {
         REF_DATABASE_ROOT.child(NODE_GROUPS).child(model.id)
             .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot1 ->
                 val newModel = dataSnapshot1.getCommonModel()
-
                 // 3 запрос
                 REF_DATABASE_ROOT.child(NODE_GROUPS).child(model.id).child(NODE_MESSAGES)
                     .limitToLast(1)
@@ -57,7 +53,7 @@ class MainListFragment : Fragment(R.layout.fragment_main_list) {
                         val tempList = dataSnapshot2.children.map { it.getCommonModel() }
 
                         if (tempList.isEmpty()){
-                            newModel.lastMessage = "Чат очищен"
+                            newModel.lastMessage = getString(R.string.chat_cleared)
                         } else {
                             newModel.lastMessage = tempList[0].text
                         }
@@ -65,7 +61,6 @@ class MainListFragment : Fragment(R.layout.fragment_main_list) {
                         mAdapter.updateListItems(newModel)
                     })
             })
-
     }
 
     private fun showChat(model: CommonModel) {
@@ -78,18 +73,14 @@ class MainListFragment : Fragment(R.layout.fragment_main_list) {
                 mRefMessages.child(model.id).limitToLast(1)
                     .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot2 ->
                         val tempList = dataSnapshot2.children.map { it.getCommonModel() }
-
                         if (tempList.isEmpty()){
-                            newModel.lastMessage = "Чат очищен"
+                            newModel.lastMessage = getString(R.string.chat_cleared)
                         } else {
                             newModel.lastMessage = tempList[0].text
                         }
-
-
                         if (newModel.fullname.isEmpty()) {
                             newModel.fullname = newModel.phone
                         }
-
                         newModel.type = TYPE_CHAT
                         mAdapter.updateListItems(newModel)
                     })

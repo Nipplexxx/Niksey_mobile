@@ -203,7 +203,7 @@ class SingleChatFragment(private var contact: CommonModel) :
             mSmoothScrollToPosition = true
             val message = view?.findViewById<EditText>(R.id.chat_input_message)?.text.toString()
             if (message.isEmpty()) {
-                showToast("Введите сообщение")
+                showToast(getString(R.string.enter_a_message))
             } else sendMessage(message, contact.id, TYPE_TEXT) {
                 saveToMainList(contact.id, TYPE_CHAT)
                 view?.findViewById<EditText>(R.id.chat_input_message)?.setText("")

@@ -50,7 +50,7 @@ class EnterCodeFragment(private val phoneNumber: String, val id: String) :
                                     NODE_USERS
                                 ).child(uid).updateChildren(dateMap)
                                     .addOnSuccessListener {
-                                        showToast("Добро пожаловать")
+                                        showToast(getString(R.string.welcome))
                                         restartActivity()
                                     }
                                     .addOnFailureListener { showToast(it.message.toString()) }
