@@ -47,6 +47,7 @@
     <string name="record">Record</string>
     <string name="enter_a_name">Enter a name</string>
     <string name="welcome">Welcome</string>
+    <string name="voice_message">voice message</string>
 
     <plurals name="count_members" tools:ignore="UnusedQuantity">
         <item quantity="one">%d participant</item>

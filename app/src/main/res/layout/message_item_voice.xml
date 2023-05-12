@@ -41,10 +41,23 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/app_small_margin"
             android:gravity="end"
-            android:textColor="@color/material_drawer_divider"
+            android:textColor="@color/material_drawer_primary_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="21:45" />
+
+        <TextView
+            android:id="@+id/chat_received_voice_message_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="18dp"
+            android:gravity="end"
+            android:textColor="@color/black_100"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/voice_message" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -81,10 +94,23 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/app_small_margin"
             android:gravity="end"
-            android:textColor="@color/purple_200"
+            android:textColor="@color/material_drawer_primary_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="21:45" />
+
+        <TextView
+            android:id="@+id/chat_user_voice_message_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="18dp"
+            android:gravity="end"
+            android:textColor="@color/white_100"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/voice_message" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

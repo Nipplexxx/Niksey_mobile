@@ -48,6 +48,7 @@
     <string name="record">Запись</string>
     <string name="enter_a_name">Введите имя</string>
     <string name="welcome">Добро пожаловать</string>
+    <string name="voice_message">голосовое сообщение</string>
 
     <plurals name="count_members">
         <item quantity="one">%d участник</item>

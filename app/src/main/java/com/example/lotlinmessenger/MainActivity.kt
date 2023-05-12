@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
             initFields()
             initFunc()
         }
-
     }
 
     private fun initFunc() {

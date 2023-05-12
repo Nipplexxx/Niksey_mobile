@@ -19,7 +19,6 @@
             android:id="@+id/chat_received_btn_download"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_margin="@dimen/app_small_margin"
             android:src="@drawable/ic_file_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/app_small_margin"
             android:maxLines="2"
+            android:textColor="@color/purple_300"
             app:layout_constraintBottom_toTopOf="@id/chat_received_file_message_time"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/chat_received_btn_download"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/app_small_margin"
             android:gravity="end"
-            android:textColor="@color/material_drawer_hint_text"
+            android:textColor="@color/material_drawer_primary_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="21:45" />
@@ -57,7 +57,8 @@
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -96,6 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/app_small_margin"
             android:maxLines="2"
+            android:textColor="@color/white_100"
             app:layout_constraintBottom_toTopOf="@id/chat_user_file_message_time"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/chat_user_btn_download"
@@ -107,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/app_small_margin"
             android:gravity="end"
-            android:textColor="@color/color_time_chat"
+            android:textColor="@color/material_drawer_primary_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="21:45" />
