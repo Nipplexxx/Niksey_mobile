@@ -15,7 +15,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/black_80</item>
         <item name="android:layout_marginStart">@dimen/app_margin</item>
-        <item name="android:layout_marginTop">@dimen/vertical_large_margin</item>
+        <item name="android:layout_marginTop">10dp</item>
         <item name="android:textSize">@dimen/normalText</item>
     </style>
 

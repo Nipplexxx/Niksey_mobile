@@ -12,7 +12,7 @@
         android:id="@+id/add_contacts_item_photo"
         android:layout_width="@dimen/settings_user_photo_width"
         android:layout_height="@dimen/settings_btn_change_photo_height"
-        android:background="@color/purple_300"
+        android:background="@color/white_100"
         android:src="@drawable/default_photo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,8 +21,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/add_contacts_item_choice"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
         android:src="@drawable/img_choice"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/add_contacts_item_photo"
