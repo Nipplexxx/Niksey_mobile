@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
     tools:context=".ui.screens.register.EnterCodeFragment">
 
     <ImageView
         android:id="@+id/register_img"
         android:layout_width="@dimen/img_width_icon_normal"
         android:layout_height="@dimen/img_height_icon_normal"
+        android:layout_marginTop="@dimen/app_margin"
+        android:contentDescription="@string/cd_register_img"
         android:src="@drawable/img_register_code"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/app_margin"
-        android:contentDescription="@string/cd_register_img" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/register_text_enter_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/register_text_enter_code"
-        android:textStyle="bold"
-        android:textSize="@dimen/normalText"
-        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/app_small_margin"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/register_img"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/register_text_enter_code"
+        android:textColor="@color/purple_0"
+        android:textSize="@dimen/normalText"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/app_small_margin" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_img" />
 
     <TextView
         android:id="@+id/register_text_we_sent"
@@ -39,22 +40,22 @@
         android:layout_marginTop="@dimen/app_small_margin"
         android:gravity="center"
         android:text="@string/register_text_we_sent"
-        android:textColor="#546E7A"
+        android:textColor="@color/black_80"
         app:layout_constraintTop_toBottomOf="@id/register_text_enter_code"
         tools:layout_editor_absoluteX="16dp" />
 
     <EditText
-        android:layout_width="wrap_content"
-        style="@style/editText"
         android:id="@+id/register_input_code"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_text_we_sent"
+        style="@style/editText"
+        android:layout_width="wrap_content"
         android:autofillHints=""
-        android:maxLength="6"
+        android:background="@null"
         android:gravity="center"
         android:hint="@string/register_hint_default_code"
-        android:background="@null"
-        android:inputType="" />
+        android:inputType=""
+        android:maxLength="6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_text_we_sent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

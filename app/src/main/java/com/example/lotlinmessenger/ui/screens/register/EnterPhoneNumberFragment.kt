@@ -42,7 +42,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
     }
 
     private fun sendCode() {
-        if (view?.findViewById<EditText>(R.id.register_input_phone_number)?.text.toString()
+        if (view?.findViewById<com.fredporciuncula.phonemoji.PhonemojiTextInputEditText>(R.id.register_input_phone_number)?.text.toString()
                 .isEmpty()
         ) {
             showToast(getString(R.string.register_toast_enter_phone))
@@ -53,7 +53,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
 
     private fun authUser() {
         mPhoneNumber =
-            view?.findViewById<EditText>(R.id.register_input_phone_number)?.text.toString()
+            view?.findViewById<com.fredporciuncula.phonemoji.PhonemojiTextInputEditText>(R.id.register_input_phone_number)?.text.toString()
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
             mPhoneNumber,
             60,

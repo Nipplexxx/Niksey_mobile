@@ -9,10 +9,7 @@ import com.example.lotlinmessenger.R
 import com.mikepenz.materialize.util.KeyboardUtil.hideKeyboard
 
 /* Базовый фрагмент, от него наследуются фрагменты где происходит изменение данных о пользователе. */
-
 open class BaseChangeFragment (layout:Int): Fragment(layout) {
-
-
     override fun onStart() {
         super.onStart()
         setHasOptionsMenu(true)
@@ -38,6 +35,5 @@ open class BaseChangeFragment (layout:Int): Fragment(layout) {
     }
 
     open fun change() {
-
     }
 }

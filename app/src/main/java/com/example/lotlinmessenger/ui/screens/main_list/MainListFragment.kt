@@ -18,7 +18,7 @@ class MainListFragment : Fragment(R.layout.fragment_main_list) {
 
     override fun onResume() {
         super.onResume()
-        APP_ACTIVITY.title = "Collibri"
+        APP_ACTIVITY.title = getString(R.string.app_name)
         APP_ACTIVITY.mAppDrawer.enableDrawer()
         hideKeyboard(activity)
         initRecyclerView()

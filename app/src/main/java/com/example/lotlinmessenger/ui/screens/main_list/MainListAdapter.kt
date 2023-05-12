@@ -17,19 +17,17 @@ import de.hdodenhof.circleimageview.CircleImageView
 
 
 class MainListAdapter : RecyclerView.Adapter<MainListAdapter.MainListHolder>() {
-
     private var listItems = mutableListOf<CommonModel>()
 
     class MainListHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val itemName: TextView? = view.findViewById<TextView>(R.id.main_list_item_name)
-        val itemLastMessage: TextView = view.findViewById<TextView>(R.id.main_list_last_message)
-        val itemPhoto: CircleImageView = view.findViewById<CircleImageView>(R.id.main_list_item_photo)
+        val itemName: TextView? = view.findViewById(R.id.main_list_item_name)
+        val itemLastMessage: TextView = view.findViewById(R.id.main_list_last_message)
+        val itemPhoto: CircleImageView = view.findViewById(R.id.main_list_item_photo)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainListHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.main_list_item, parent, false)
-
         val holder = MainListHolder(view)
         holder.itemView.setOnClickListener {
             when(listItems[holder.adapterPosition].type){

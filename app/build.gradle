@@ -34,6 +34,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -66,7 +67,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:8.0.2'
     implementation 'androidx.activity:activity-ktx:1.7.1'
     implementation platform('com.google.firebase:firebase-bom:32.0.0')
-
+    implementation 'com.fredporciuncula:phonemoji:1.5.1'
 
 
     // Add for NavController support

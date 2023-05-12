@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/app_small_margin">
+    android:layout_margin="@dimen/app_small_margin"
+    android:background="#FFFFFF">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bloc_received_voice_message"
@@ -59,7 +60,7 @@
             android:id="@+id/chat_user_btn_play"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_play_green"
+            android:src="@drawable/ic_play_white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -68,7 +69,7 @@
             android:id="@+id/chat_user_btn_stop"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_stop_green"
+            android:src="@drawable/ic_stop_white"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/app_small_margin"
             android:gravity="end"
-            android:textColor="@color/teal_700"
+            android:textColor="@color/purple_200"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="21:45" />

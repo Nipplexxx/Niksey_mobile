@@ -249,9 +249,7 @@ fun uploadFileToStorage(
     typeMessage: String,
     filename: String = ""
 ) {
-    val path = REF_STORAGE_ROOT.child(
-        FOLDER_FILES
-    ).child(messageKey)
+    val path = REF_STORAGE_ROOT.child(FOLDER_FILES).child(messageKey)
     putFileToStorage(uri, path) {
         getUrlFromStorage(path) {
             sendMessageAsFile(

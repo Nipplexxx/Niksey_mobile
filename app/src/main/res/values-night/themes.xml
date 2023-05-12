@@ -3,12 +3,13 @@
     <style name="Theme.LotlinMessenger" parent="MaterialDrawerTheme.Light">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@drawable/head</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <!-- Primary color profile picture -->
+        <item name="colorPrimaryVariant">@color/purple_0</item>
+        <item name="colorOnPrimary">@color/black_80</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/purple_100</item>
+        <item name="colorSecondaryVariant">@color/purple_100</item>
+        <item name="colorOnSecondary">@color/black_80</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

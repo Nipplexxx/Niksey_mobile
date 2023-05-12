@@ -4,27 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".ui.screens.register.EnterPhoneNumberFragment">
 
-    <EditText
-        android:id="@+id/register_input_phone_number"
-        style="@style/editText"
-        android:autofillHints=""
-        android:backgroundTint="@color/material_default"
-        android:hint="@string/number_phone"
-        android:inputType="phone"
-        android:textAlignment="center"
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="135dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/favicon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor,VisualLintTextFieldSize,SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.fredporciuncula.phonemoji.PhonemojiTextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/register_toast_enter_phone">
+        <com.fredporciuncula.phonemoji.PhonemojiTextInputEditText
+            android:id="@+id/register_input_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_80"/>
+    </com.fredporciuncula.phonemoji.PhonemojiTextInputLayout>
 
     <Button
         android:id="@+id/register_btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/app_margin"
-        android:backgroundTint="@color/material_default"
+        android:backgroundTint="@color/purple_100"
         android:contentDescription="@string/switching_to_another_window"
         android:text="@string/btn_text_next"
         android:textColor="@color/material_drawer_background"

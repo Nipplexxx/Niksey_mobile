@@ -5,14 +5,15 @@
     style="@style/settingsButtons"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/app_margin">
+    android:layout_margin="@dimen/app_margin"
+    android:background="#FFFFFF">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/contact_photo"
         android:layout_width="@dimen/settings_user_photo_width"
         android:layout_height="@dimen/settings_btn_change_photo_height"
+        android:background="@color/purple_300"
         android:src="@drawable/default_photo"
-        android:background="@color/material_default"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

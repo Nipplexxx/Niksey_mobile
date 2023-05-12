@@ -3,7 +3,7 @@
     <dimen name="app_margin">16dp</dimen>
     <dimen name="app_small_margin">10dp</dimen>
     <dimen name="vertical_large_margin">16dp</dimen>
-    <dimen name="normalText">16sp</dimen>
+    <dimen name="normalText">18sp</dimen>
     <dimen name="smallText">14sp</dimen>
 
     <!--Settings fragment-->
@@ -14,8 +14,8 @@
     <dimen name="settings_btn_change_photo_height">55dp</dimen>
     <dimen name="settings_ripple_effect_radius">8dp</dimen>
     <dimen name="appPadding">10dp</dimen>
-    <dimen name="img_width_icon_normal">40dp</dimen>
-    <dimen name="img_height_icon_normal">40dp</dimen>
+    <dimen name="img_width_icon_normal">50dp</dimen>
+    <dimen name="img_height_icon_normal">50dp</dimen>
 
     <!--Toolbar fragment-->
     <dimen name="toolbar_image_width">45dp</dimen>

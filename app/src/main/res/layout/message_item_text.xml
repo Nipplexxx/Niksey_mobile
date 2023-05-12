@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/app_small_margin">
+    android:layout_margin="@dimen/app_small_margin"
+    android:background="#FFFFFF">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bloc_user_message"
         android:layout_width="wrap_content"
-        app:layout_constraintWidth_min="48dp"
         android:layout_height="match_parent"
         android:layout_marginStart="100dp"
         android:background="@drawable/bg_user_message"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_min="48dp">
 
         <TextView
             android:id="@+id/chat_user_message"
@@ -23,7 +24,7 @@
             android:layout_height="wrap_content"
             android:gravity="end"
             android:padding="@dimen/appPadding"
-            android:textColor="@color/white"
+            android:textColor="@color/white_100"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -47,13 +48,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bloc_received_message"
         android:layout_width="wrap_content"
-        app:layout_constraintWidth_min="48dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="100dp"
         android:background="@drawable/bg_receiving_message"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_min="48dp">
 
         <TextView
             android:id="@+id/chat_received_message"
@@ -61,7 +62,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/appPadding"
             android:textAlignment="viewStart"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/black_100"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

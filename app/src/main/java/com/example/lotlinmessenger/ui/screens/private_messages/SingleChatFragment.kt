@@ -87,7 +87,7 @@ class SingleChatFragment(private var contact: CommonModel) :
                         view?.findViewById<ImageView>(R.id.chat_btn_voice)?.setColorFilter(
                             ContextCompat.getColor(
                                 APP_ACTIVITY,
-                                R.color.teal_700
+                                R.color.purple_200
                             )
                         )
                         val messageKey = getMessageKeyGroup(contact.id)

@@ -20,7 +20,7 @@
         style="@style/normalText"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
-        android:textColor="@color/white"
+        android:textColor="@color/white_100"
         app:layout_constraintStart_toEndOf="@+id/toolbar_chat_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Аня" />
