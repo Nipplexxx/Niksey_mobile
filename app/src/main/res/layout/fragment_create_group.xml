@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/colorMain">
 
 
     <ImageView
@@ -38,10 +38,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/app_margin"
         android:text="@string/settings_text_account"
-        android:textColor="@color/material_default"
+        android:textColor="@color/black_100"
         android:textSize="@dimen/smallText"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/create_group_photo" />
+        app:layout_constraintTop_toBottomOf="@id/create_group_photo"
+        tools:layout_editor_absoluteX="16dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/create_group_btn_complete"

@@ -6,21 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/app_margin"
-    android:background="#FFFFFF">
+    android:background="@color/colorMain">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/contact_photo"
-        android:layout_width="@dimen/settings_user_photo_width"
-        android:layout_height="@dimen/settings_btn_change_photo_height"
-        android:background="@color/white_100"
         android:src="@drawable/default_photo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/style_photo_profil"/>
 
     <TextView
         android:id="@+id/contact_fullname"
         style="@style/normalText"
+        android:textColor="@color/black_100"
         app:layout_constraintStart_toEndOf="@id/contact_photo"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Yura Petrov" />
@@ -28,6 +27,7 @@
     <TextView
         android:id="@+id/contact_status"
         style="@style/smallText"
+        android:textColor="@color/black_10"
         app:layout_constraintStart_toEndOf="@id/contact_photo"
         app:layout_constraintTop_toBottomOf="@id/contact_fullname"
         tools:text="в сети" />

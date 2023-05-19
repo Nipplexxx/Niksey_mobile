@@ -4,7 +4,7 @@
     android:id="@+id/bottom_sheet_choice"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:background="#F7F6FF"
+    android:background="@color/colorMainContainer"
     android:orientation="horizontal"
     app:behavior_hideable="true"
     app:behavior_peekHeight="0dp"

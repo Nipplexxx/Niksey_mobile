@@ -24,12 +24,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/data_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/main_toolbar"
+        style="@style/style_constratint_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

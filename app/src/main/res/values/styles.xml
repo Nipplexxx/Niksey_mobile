@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="settingsButtons">
         <item name="android:layout_width">match_parent</item>
@@ -22,7 +22,7 @@
     <style name="smallText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">#A3AAB0</item>
+        <item name="android:textColor">@color/black_10</item>
         <item name="android:layout_marginStart">@dimen/app_margin</item>
         <item name="android:textSize">@dimen/smallText</item>
     </style>
@@ -30,7 +30,7 @@
     <style name="separator">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
-        <item name="android:background">#B5BCC2</item>
+        <item name="android:background">@color/black_10</item>
         <item name="android:layout_marginTop">@dimen/app_small_margin</item>
         <item name="android:layout_marginStart">@dimen/app_margin</item>
         <item name="android:layout_marginEnd">@dimen/app_margin</item>
@@ -47,4 +47,36 @@
         <item name="background">@color/white_100</item>
         <item name="actionMenuTextColor">@color/black_80</item>
     </style>
+
+    <style name="style_constratint_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@color/colorMain</item>
+    </style>
+
+    <style name="style_edit_text" parent="editText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:autofillHints" tools:targetApi="o"></item>
+        <item name="android:inputType">text</item>
+        <item name="android:textColor">@color/black_80</item>
+        <item name="minHeight">48dp</item>
+        <item name="android:backgroundTint">@color/material_default</item>
+    </style>
+
+    <style name="style_input_code" parent="editText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:autofillHints" tools:targetApi="o"></item>
+        <item name="android:background">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType"></item>
+        <item name="android:maxLength">6</item>
+    </style>
+
+    <style name="style_photo_profil">
+        <item name="android:layout_width">@dimen/settings_user_photo_width</item>
+        <item name="android:layout_height">@dimen/settings_btn_change_photo_height</item>
+        <item name="android:background">@color/white_100</item>
+    </style>
+
 </resources>

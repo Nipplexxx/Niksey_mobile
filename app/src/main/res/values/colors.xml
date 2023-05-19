@@ -4,6 +4,7 @@
     <color name="purple_100">#8674fa</color>
     <color name="purple_200">#745ff8</color>
     <color name="purple_300">#6c51f7</color>
+    <color name="black_10">#A3AAB0</color>
     <color name="black_80">#191818</color>
     <color name="black_100">#000000</color>
     <color name="white_100">#FFFFFFFF</color>
@@ -26,4 +27,6 @@
     <color name="material_default">#143952</color>
     <color name="color_time_chat">#2B718F</color>
     <color name="colorBlueWish">#E5F3FA</color>
+    <color name="colorMain">#FFFFFF</color>
+    <color name="colorMainContainer">#ece8ff</color>
 </resources>

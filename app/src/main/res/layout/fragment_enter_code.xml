@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/colorMain"
     tools:context=".ui.screens.register.EnterCodeFragment">
 
     <ImageView
@@ -46,14 +46,8 @@
 
     <EditText
         android:id="@+id/register_input_code"
-        style="@style/editText"
-        android:layout_width="wrap_content"
-        android:autofillHints=""
-        android:background="@null"
-        android:gravity="center"
+        style="@style/style_input_code"
         android:hint="@string/register_hint_default_code"
-        android:inputType=""
-        android:maxLength="6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/register_text_we_sent" />
