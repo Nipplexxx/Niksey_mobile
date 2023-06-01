@@ -1,5 +1,7 @@
 package com.example.lotlinmessenger.ui.screens.groups_messages
 
+import android.app.Activity
+import android.content.Intent
 import android.net.Uri
 import android.widget.EditText
 import android.widget.ImageView
@@ -13,6 +15,8 @@ import com.example.lotlinmessenger.ui.screens.main_list.MainListFragment
 import com.example.lotlinmessenger.utillits.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.mikepenz.materialize.util.KeyboardUtil.hideKeyboard
+import com.theartofdev.edmodo.cropper.CropImage
+import com.theartofdev.edmodo.cropper.CropImageView
 
 class CreateGroupFragment(private var listContacts:List<CommonModel>)
     :BaseFragment(R.layout.fragment_create_group) {
@@ -43,7 +47,11 @@ class CreateGroupFragment(private var listContacts:List<CommonModel>)
     }
 
     private fun addPhoto() {
-
+        CropImage.activity()
+            .setAspectRatio(1, 1)
+            .setRequestedSize(250, 250)
+            .setCropShape(CropImageView.CropShape.OVAL)
+            .start(APP_ACTIVITY,this)
     }
 
     private fun initRecyclerView() {
@@ -51,5 +59,16 @@ class CreateGroupFragment(private var listContacts:List<CommonModel>)
         mAdapter = AddContactsAdapter()
         mRecyclerView.adapter = mAdapter
         listContacts.forEach {  mAdapter.updateListItems(it) }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        /* Активность которая запускается для получения картинки для фото пользователя */
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE
+            && resultCode == Activity.RESULT_OK && data != null
+        ) {
+            mUri = CropImage.getActivityResult(data).uri
+            view?.findViewById<ImageView>(R.id.create_group_photo)?.setImageURI(mUri)
+        }
     }
 }
