@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/app_margin"
             android:layout_marginTop="@dimen/app_small_margin"
+            android:fontFamily="@font/chivo"
             android:textColor="@color/white_100"
             android:textSize="@dimen/normalText"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/app_margin"
+            android:fontFamily="@font/chivo"
             android:textColor="@color/white_100"
             android:textSize="@dimen/smallText"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,13 +60,15 @@
         android:id="@+id/settings_text_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/app_margin"
         android:layout_marginTop="@dimen/vertical_large_margin"
+        android:fontFamily="@font/chivo"
+        android:paddingStart="15dp"
         android:text="@string/settings_text_account"
         android:textColor="@color/purple_200"
         android:textSize="@dimen/smallText"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/settings_header_block" />
+        app:layout_constraintTop_toBottomOf="@id/settings_header_block"
+        tools:layout_editor_absoluteX="16dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settings_btn_change_number_phone"
@@ -76,6 +80,7 @@
         <TextView
             android:id="@+id/settings_phone_number"
             style="@style/normalText"
+            android:fontFamily="@font/chivo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/settings_btn_change_number_phone"
             tools:text="@string/settings_default_namber" />
@@ -83,6 +88,7 @@
         <TextView
             android:id="@+id/settings_label_phone_number"
             style="@style/smallText"
+            android:fontFamily="@font/chivo"
             android:text="@string/settings_label_phone_number"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/settings_phone_number" />
@@ -104,6 +110,7 @@
         <TextView
             android:id="@+id/settings_username"
             style="@style/normalText"
+            android:fontFamily="@font/chivo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/settings_btn_change_username"
             tools:text="@string/settings_default_login" />
@@ -111,6 +118,7 @@
         <TextView
             android:id="@+id/settings_label_login"
             style="@style/smallText"
+            android:fontFamily="@font/chivo"
             android:text="@string/settings_label_login"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/settings_username" />
@@ -132,6 +140,7 @@
         <TextView
             android:id="@+id/settings_bio"
             style="@style/normalText"
+            android:fontFamily="@font/chivo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/settings_btn_change_bio"
             tools:text="@string/settings_default_bio" />
@@ -139,6 +148,7 @@
         <TextView
             android:id="@+id/settings_label_bio"
             style="@style/smallText"
+            android:fontFamily="@font/chivo"
             android:text="@string/settings_label_bio"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/settings_bio" />

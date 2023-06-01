@@ -10,6 +10,7 @@
     <EditText
         android:id="@+id/settings_input_name"
         style="@style/style_edit_text"
+        android:fontFamily="@font/chivo"
         android:hint="@string/settings_hint_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,6 +20,7 @@
     <EditText
         android:id="@+id/settings_input_surname"
         style="@style/style_edit_text"
+        android:fontFamily="@font/chivo"
         android:hint="@string/settings_hint_surname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -19,6 +19,7 @@
     <TextView
         android:id="@+id/contact_fullname"
         style="@style/normalText"
+        android:fontFamily="@font/chivo"
         android:textColor="@color/black_100"
         app:layout_constraintStart_toEndOf="@id/contact_photo"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,6 +28,7 @@
     <TextView
         android:id="@+id/contact_status"
         style="@style/smallText"
+        android:fontFamily="@font/chivo"
         android:textColor="@color/black_10"
         app:layout_constraintStart_toEndOf="@id/contact_photo"
         app:layout_constraintTop_toBottomOf="@id/contact_fullname"
