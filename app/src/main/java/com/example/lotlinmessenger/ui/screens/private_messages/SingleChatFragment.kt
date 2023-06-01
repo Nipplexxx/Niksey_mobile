@@ -28,6 +28,7 @@ import com.example.lotlinmessenger.database.*
 import com.example.lotlinmessenger.ui.fragments.message_recycler_view.views.AppViewFactory
 import com.example.lotlinmessenger.ui.screens.main_list.MainListFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.theartofdev.edmodo.cropper.CropImage
 
 
 class SingleChatFragment(private var contact: CommonModel) :
@@ -109,6 +110,7 @@ class SingleChatFragment(private var contact: CommonModel) :
     private fun attach() {
         mBottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
         view?.findViewById<ImageView>(R.id.btn_attach_file)?.setOnClickListener { attachFile() }
+        view?.findViewById<ImageView>(R.id.btn_attach_image)?.setOnClickListener { attachImage() }
     }
 
     private fun attachFile() {
@@ -117,11 +119,26 @@ class SingleChatFragment(private var contact: CommonModel) :
         startActivityForResult(intent, PICK_FILE_REQUEST_CODE)
     }
 
+    private fun attachImage() {
+        CropImage.activity()
+            .setAspectRatio(1, 1)
+            .setRequestedSize(250, 250)
+            .start(APP_ACTIVITY, this)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         /* Активность которая запускается для получения файла */
         super.onActivityResult(requestCode, resultCode, data)
         if (data!=null){
             when(requestCode){
+                CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE -> {
+                    val uri = CropImage.getActivityResult(data).uri
+                    val messageKey = getMessageKey(contact.id)
+                    uploadFileToStorage(uri,messageKey,contact.id, TYPE_MESSAGE_IMAGE)
+                    mSmoothScrollToPosition = true
+                }
+
+
                 PICK_FILE_REQUEST_CODE -> {
                     val uri = data.data
                     val messageKey = getMessageKeyPrivate(contact.id)

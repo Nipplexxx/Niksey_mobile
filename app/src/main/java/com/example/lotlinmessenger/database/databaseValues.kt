@@ -20,6 +20,7 @@ import com.google.firebase.storage.StorageReference
 //Второстепенные ноды
     const val NODE_USERNAMES = "usernames"
     const val FOLDER_PROFILE_IMAGE = "profile_image"
+    const val FOLDER_MESSAGE_IMAGE = "message_image"
     const val CHILD_ID = "id"
     const val CHILD_USERNAME = "username"
     const val CHILD_PHONE = "phone"

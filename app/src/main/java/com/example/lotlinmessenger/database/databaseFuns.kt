@@ -234,7 +234,9 @@ fun uploadFileToStorage(
     typeMessage: String,
     filename: String = ""
 ) {
-    val path = REF_STORAGE_ROOT.child(FOLDER_FILES).child(messageKey)
+    val path = REF_STORAGE_ROOT.child(
+        FOLDER_FILES
+    ).child(messageKey)
     putFileToStorage(uri, path) {
         getUrlFromStorage(path) {
             sendMessageAsFile(
@@ -274,6 +276,11 @@ inline fun putImageToStorage(uri: Uri, path: StorageReference,crossinline functi
         .addOnFailureListener { showToast(it.message.toString()) }
 }
 
+fun getMessageKey(id: String) = REF_DATABASE_ROOT.child(
+    NODE_MESSAGES
+).child(CURRENT_UID)
+    .child(id).push().key.toString()
+
 fun getFileFromStorage(mFile: File, fileUrl: String, function: () -> Unit) {
     val path = REF_STORAGE_ROOT.storage.getReferenceFromUrl(fileUrl)
     path.getFile(mFile)
@@ -300,7 +307,6 @@ fun saveToMainList(id: String, type: String) {
 
     REF_DATABASE_ROOT.updateChildren(commonMap)
         .addOnFailureListener { showToast(it.message.toString()) }
-
 }
 
 fun deleteChat(id: String, function: () -> Unit) {

@@ -2,9 +2,11 @@
 
 package com.example.lotlinmessenger
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityMainBinding
     lateinit var mAppDrawer: AppDrawer
     lateinit var mToolbar: Toolbar
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         /* Функция запускается один раз, при создании активити */
         super.onCreate(savedInstanceState)
@@ -41,6 +44,8 @@ class MainActivity : AppCompatActivity() {
             initFields()
             initFunc()
             AppStates.updateState(AppStates.ONLINE)
+            /*Отключение автоповорота*/
+            setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         }
     }
 
