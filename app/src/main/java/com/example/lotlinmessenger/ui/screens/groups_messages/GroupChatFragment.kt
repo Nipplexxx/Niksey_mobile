@@ -27,6 +27,7 @@ import com.example.lotlinmessenger.ui.fragments.message_recycler_view.views.AppV
 import com.example.lotlinmessenger.ui.screens.main_list.MainListFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.theartofdev.edmodo.cropper.CropImage
+import de.hdodenhof.circleimageview.CircleImageView
 
 
 class GroupChatFragment(private val group: CommonModel) :
@@ -101,7 +102,6 @@ class GroupChatFragment(private val group: CommonModel) :
                 true
             }
         }
-
     }
 
     private fun attach() {
@@ -117,19 +117,20 @@ class GroupChatFragment(private val group: CommonModel) :
     }
 
     private fun attachImage() {
-
+        CropImage.activity()
+            .setAspectRatio(1, 1)
+            .setRequestedSize(250, 250)
+            .start(APP_ACTIVITY, this)
     }
 
     private fun initRecycleView() {
-        mRecyclerView = view?.findViewById<RecyclerView>(R.id.chat_recycle_view) !!
+        mRecyclerView = view?.findViewById<RecyclerView>(R.id.chat_recycle_view)!!
         mAdapter = GroupChatAdapter()
-
 
         mRefMessages = REF_DATABASE_ROOT
             .child(NODE_GROUPS)
             .child(group.id)
             .child(NODE_MESSAGES)
-
         mRecyclerView.adapter = mAdapter
         mRecyclerView.setHasFixedSize(true)
         mRecyclerView.isNestedScrollingEnabled = false
@@ -146,12 +147,9 @@ class GroupChatFragment(private val group: CommonModel) :
                     mSwipeRefreshLayout.isRefreshing = false
                 }
             }
-
         }
         mRefMessages.limitToLast(mCountMessages).addChildEventListener(mMessagesListener)
-
         mRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 println(mRecyclerView.recycledViewPool.getRecycledViewCount(0))
@@ -159,7 +157,6 @@ class GroupChatFragment(private val group: CommonModel) :
                     updateData()
                 }
             }
-
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
@@ -167,8 +164,6 @@ class GroupChatFragment(private val group: CommonModel) :
                 }
             }
         })
-
-
         mSwipeRefreshLayout.setOnRefreshListener { updateData() }
     }
 
@@ -213,7 +208,7 @@ class GroupChatFragment(private val group: CommonModel) :
             mToolbarInfo.findViewById<TextView>(R.id.toolbar_chat_fullname).text = group.fullname
         } else mToolbarInfo.findViewById<TextView>(R.id.toolbar_chat_fullname).text = mReceivingUser.fullname
 
-        mToolbarInfo.findViewById<ImageView>(R.id.toolbar_chat_image).downloadAndSetImage(mReceivingUser.photoUrl)
+        mToolbarInfo.findViewById<ImageView>(R.id.toolbar_chat_image).downloadAndSetImage(group.photoUrl)
         mToolbarInfo.findViewById<TextView>(R.id.toolbar_chat_status).text = mReceivingUser.state
     }
 
@@ -223,13 +218,15 @@ class GroupChatFragment(private val group: CommonModel) :
         if (data!=null){
             when(requestCode){
                 CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE -> {
-                    val messageKey = getMessageKeyGroup(group.id)
+                    val uri = CropImage.getActivityResult(data).uri
+                    val messageKey = getMessageKey(group.id)
+                    uploadFileToStorage(uri,messageKey,group.id, TYPE_MESSAGE_IMAGE)
                     mSmoothScrollToPosition = true
                 }
 
                 PICK_FILE_REQUEST_CODE -> {
                     val uri = data.data
-                    val messageKey = getMessageKeyGroup(group.id)
+                    val messageKey = getMessageKey(group.id)
                     val filename = getFilenameFromUri(uri!!)
                     uploadFileToStorage(uri,messageKey,group.id, TYPE_MESSAGE_FILE,filename)
                     mSmoothScrollToPosition = true

@@ -77,9 +77,7 @@ class SingleChatFragment(private var contact: CommonModel) :
                 view?.findViewById<ImageView>(R.id.chat_btn_voice)?.visibility = View.GONE
             }
         })
-
         view?.findViewById<ImageView>(R.id.chat_btn_attach)?.setOnClickListener { attach() }
-
         CoroutineScope(Dispatchers.IO).launch {
             view?.findViewById<ImageView>(R.id.chat_btn_voice)?.setOnTouchListener { v, event ->
                 if (checkPermission(RECORD_AUDIO)) {
