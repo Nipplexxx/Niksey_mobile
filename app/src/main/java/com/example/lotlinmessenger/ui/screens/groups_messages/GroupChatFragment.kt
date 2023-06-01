@@ -22,11 +22,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import android.net.Uri
 import android.view.*
-import com.canhub.cropper.CropImage
 import com.example.lotlinmessenger.database.*
 import com.example.lotlinmessenger.ui.fragments.message_recycler_view.views.AppViewFactory
 import com.example.lotlinmessenger.ui.screens.main_list.MainListFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.theartofdev.edmodo.cropper.CropImage
 
 
 class GroupChatFragment(private val group: CommonModel) :

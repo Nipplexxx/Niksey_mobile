@@ -14,6 +14,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ServerValue
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
+import de.hdodenhof.circleimageview.CircleImageView
 import java.io.File
 import java.util.ArrayList
 import java.util.HashMap
@@ -27,23 +29,6 @@ fun initFirebase() {
         UserModel()
     CURRENT_UID = AUTH.currentUser?.uid.toString()
     REF_STORAGE_ROOT = FirebaseStorage.getInstance().reference
-}
-
-inline fun putUrlToDatabase(url: String, crossinline function: () -> Unit) {
-    /* Функция высшего порядка, отпраляет полученый URL в базу данных */
-    REF_DATABASE_ROOT.child(NODE_USERS).child(
-        CURRENT_UID
-    )
-        .child(CHILD_PHOTO_URL).setValue(url)
-        .addOnSuccessListener { function() }
-        .addOnFailureListener { showToast(it.message.toString()) }
-}
-
-inline fun getUrlFromStorage(path: StorageReference, crossinline function: (url: String) -> Unit) {
-    /* Функция высшего порядка, получает  URL картинки из хранилища */
-    path.downloadUrl
-        .addOnSuccessListener { function(it.toString()) }
-        .addOnFailureListener { showToast(it.message.toString()) }
 }
 
 inline fun putFileToStorage(uri: Uri, path: StorageReference, crossinline function: () -> Unit) {
@@ -261,6 +246,32 @@ fun uploadFileToStorage(
             )
         }
     }
+}
+
+fun CircleImageView.donwloadAndSetImage(url:String) {
+    Picasso.get()
+        .load(url)
+        .placeholder(R.drawable.default_photo)
+        .into(this)
+}
+/*Функции высшего порядка*/
+inline fun putUrlToDatabase(url: String, crossinline  function: () -> Unit) {
+    REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID)
+        .child(CHILD_PHOTO_URL).setValue(url)
+        .addOnSuccessListener { function() }
+        .addOnFailureListener { showToast(it.message.toString()) }
+}
+
+inline fun getUrlFromStorage(path: StorageReference,crossinline  function: (url: String) -> Unit) {
+    path.downloadUrl
+        .addOnSuccessListener { function(it.toString()) }
+        .addOnFailureListener { showToast(it.message.toString()) }
+}
+
+inline fun putImageToStorage(uri: Uri, path: StorageReference,crossinline function: () -> Unit) {
+    path.putFile(uri)
+        .addOnSuccessListener { function() }
+        .addOnFailureListener { showToast(it.message.toString()) }
 }
 
 fun getFileFromStorage(mFile: File, fileUrl: String, function: () -> Unit) {

@@ -1,20 +1,20 @@
 package com.example.lotlinmessenger.ui.screens.settings
 
+import android.app.Activity
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.canhub.cropper.CropImageContract
-import com.canhub.cropper.CropImageView
-import com.canhub.cropper.options
-import com.example.lotlinmessenger.MainActivity
 import com.example.lotlinmessenger.R
-import com.example.lotlinmessenger.database.AUTH
-import com.example.lotlinmessenger.database.USER
+import com.example.lotlinmessenger.database.*
 import com.example.lotlinmessenger.ui.screens.base_fragment.BaseFragment
 import com.example.lotlinmessenger.utillits.*
 import com.mikepenz.materialize.util.KeyboardUtil
+import com.theartofdev.edmodo.cropper.CropImage
+import com.theartofdev.edmodo.cropper.CropImageView
 import de.hdodenhof.circleimageview.CircleImageView
 
 
@@ -40,29 +40,36 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
             ?.setOnClickListener { replaceFragment(ChangeBioFragment()) }
         view?.findViewById<CircleImageView>(R.id.settings_shange_photo)
             ?.setOnClickListener { changePhotoUser() }
+        view?.findViewById<CircleImageView>(R.id.settings_user_photo)
+            ?.donwloadAndSetImage(USER.photoUrl)
     }
 
     private fun changePhotoUser() {
-        startCrop(APP_ACTIVITY)
+        CropImage.activity()
+            .setAspectRatio(1, 1)
+            .setRequestedSize(600, 600)
+            .setCropShape(CropImageView.CropShape.OVAL)
+            .start(APP_ACTIVITY, this)
     }
 
-    private val cropImage = registerForActivityResult(CropImageContract()) { result ->
-        if (result.isSuccessful) {
-            // Use the returned uri.
-            val uriContent = result.uriContent
-            val uriFilePath = context?.let { result.getUriFilePath(it) } // optional usage
-        } else {
-            // An error occurred.
-            val exception = result.error
-        }
-    }
-    private fun startCrop(APP_ACTIVITY: MainActivity) {
-        // Start picker to get image for cropping and then use the image in cropping activity.
-        cropImage.launch(
-            options {
-                setGuidelines(CropImageView.Guidelines.ON)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE
+            && resultCode == RESULT_OK && data != null){
+            val uri = CropImage.getActivityResult(data).uri
+            val path = REF_STORAGE_ROOT.child(FOLDER_PROFILE_IMAGE)
+                .child(CURRENT_UID)
+            putImageToStorage(uri,path) {
+                getUrlFromStorage(path) {
+                    putUrlToDatabase(it) {
+                        view?.findViewById<CircleImageView>(R.id.settings_user_photo)
+                            ?.donwloadAndSetImage(it)
+                        showToast(getString(R.string.toast_data_update))
+                        USER.photoUrl = it
+                    }
+                }
             }
-        )
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
