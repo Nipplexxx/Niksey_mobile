@@ -2,6 +2,7 @@ package com.example.lotlinmessenger.ui.screens.register
 
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import com.chaos.view.PinView
 import com.example.lotlinmessenger.R
 import com.example.lotlinmessenger.database.*
 import com.example.lotlinmessenger.utillits.*
@@ -13,9 +14,9 @@ class EnterCodeFragment(private val phoneNumber: String, val id: String) :
     override fun onStart() {
         super.onStart()
         APP_ACTIVITY.title = phoneNumber
-        view?.findViewById<EditText>(R.id.register_input_code)?.addTextChangedListener(
+        view?.findViewById<PinView>(R.id.register_input_code)?.addTextChangedListener(
             AppTextWatcher {
-                val string = view?.findViewById<EditText>(R.id.register_input_code)?.text.toString()
+                val string = view?.findViewById<PinView>(R.id.register_input_code)?.text.toString()
                 if (string.length == 6) {
                     enterCode()
                 }
@@ -24,7 +25,7 @@ class EnterCodeFragment(private val phoneNumber: String, val id: String) :
 
     private fun enterCode() {
         /* Функция проверяет код, если все нормально, производит создания информации о пользователе в базе данных.*/
-        val code = view?.findViewById<EditText>(R.id.register_input_code)?.text.toString()
+        val code = view?.findViewById<PinView>(R.id.register_input_code)?.text.toString()
         val credential = PhoneAuthProvider.getCredential(id, code)
         AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
             if (task.isSuccessful) {

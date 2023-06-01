@@ -16,7 +16,6 @@
     <string name="cd_register_img">cd_register_img</string>
     <string name="register_text_enter_code">Enter the code</string>
     <string name="register_text_we_sent">We have sent an sms with a verification code to your phone</string>
-    <string name="register_hint_default_code">▬ ▬ ▬ ▬ ▬ ▬</string>
     <string name="register_title_your_phone">Your phone number</string>
     <string name="switching_to_another_window">Switching to another window</string>
     <string name="register_toast_enter_phone">Enter your phone number</string>
@@ -48,6 +47,7 @@
     <string name="enter_a_name">Enter a name</string>
     <string name="welcome">Welcome</string>
     <string name="voice_message">voice message</string>
+    <string name="text_123456">123456</string>
 
     <plurals name="count_members">
         <item quantity="one">%d participant</item>

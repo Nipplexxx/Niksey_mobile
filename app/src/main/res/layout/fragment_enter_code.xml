@@ -46,12 +46,25 @@
         app:layout_constraintTop_toBottomOf="@id/register_text_enter_code"
         tools:layout_editor_absoluteX="16dp" />
 
-    <EditText
+    <com.chaos.view.PinView
         android:id="@+id/register_input_code"
-        style="@style/style_input_code"
-        android:hint="@string/register_hint_default_code"
+        style="@style/style_pinView"
+        android:hint="@string/text_123456"
+        app:cursorColor="@color/purple_0"
+        app:cursorWidth="2dp"
+        app:hideLineWhenFilled="true"
+        app:itemCount="6"
+        app:itemHeight="48dp"
+        app:itemRadius="15dp"
+        app:itemSpacing="0dp"
+        app:itemWidth="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_text_we_sent" />
+        app:layout_constraintTop_toBottomOf="@+id/register_text_we_sent"
+        app:lineColor="@color/purple_0"
+        app:lineWidth="2dp"
+        app:viewType="rectangle"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

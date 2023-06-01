@@ -17,7 +17,6 @@
     <string name="cd_register_img">cd_register_img</string>
     <string name="register_text_enter_code">Введите код</string>
     <string name="register_text_we_sent">Мы отправили смс с кодом проверки на Ваш телефон</string>
-    <string name="register_hint_default_code">▬ ▬ ▬ ▬ ▬ ▬</string>
     <string name="register_title_your_phone">Ваш телефон</string>
     <string name="switching_to_another_window">Переключение на другое окно</string>
     <string name="register_toast_enter_phone">Введите номер телефона</string>
@@ -49,6 +48,7 @@
     <string name="enter_a_name">Введите имя</string>
     <string name="welcome">Добро пожаловать</string>
     <string name="voice_message">голосовое сообщение</string>
+    <string name="text_123456">123456</string>
 
     <plurals name="count_members">
         <item quantity="one">%d участник</item>
