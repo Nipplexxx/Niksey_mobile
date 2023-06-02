@@ -195,60 +195,7 @@ fun setNameToDatabase(fullname: String) {
         }.addOnFailureListener { showToast(it.message.toString()) }
 }
 
-fun sendMessageAsFile(
-    receivingUserID: String,
-    fileUrl: String,
-    messageKey: String,
-    typeMessage: String,
-    filename: String
-) {
-
-    val refDialogUser = "$NODE_MESSAGES/$CURRENT_UID/$receivingUserID"
-    val refDialogReceivingUser = "$NODE_MESSAGES/$receivingUserID/$CURRENT_UID"
-
-    val mapMessage = hashMapOf<String, Any>()
-    mapMessage[CHILD_FROM] = CURRENT_UID
-    mapMessage[CHILD_TYPE] = typeMessage
-    mapMessage[CHILD_ID] = messageKey
-    mapMessage[CHILD_TIMESTAMP] = ServerValue.TIMESTAMP
-    mapMessage[CHILD_FILE_URL] = fileUrl
-    mapMessage[CHILD_TEXT] = filename
-
-    val mapDialog = hashMapOf<String, Any>()
-    mapDialog["$refDialogUser/$messageKey"] = mapMessage
-    mapDialog["$refDialogReceivingUser/$messageKey"] = mapMessage
-
-    REF_DATABASE_ROOT
-        .updateChildren(mapDialog)
-        .addOnFailureListener { showToast(it.message.toString()) }
-}
-
 fun getMessageKeyPrivate(id: String) = REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID).child(id).push().key.toString()
-
-fun getMessageKeyGroup(id: String) = REF_DATABASE_ROOT.child(NODE_GROUPS).child(id).child(NODE_MESSAGES).push().key.toString()
-
-fun uploadFileToStorage(
-    uri: Uri,
-    messageKey: String,
-    receivedID: String,
-    typeMessage: String,
-    filename: String = ""
-) {
-    val path = REF_STORAGE_ROOT.child(
-        FOLDER_FILES
-    ).child(messageKey)
-    putFileToStorage(uri, path) {
-        getUrlFromStorage(path) {
-            sendMessageAsFile(
-                receivedID,
-                it,
-                messageKey,
-                typeMessage,
-                filename
-            )
-        }
-    }
-}
 
 fun CircleImageView.donwloadAndSetImage(url:String) {
     Picasso.get()
@@ -438,6 +385,59 @@ fun addGroupsToMainList(
         .addOnFailureListener { showToast(it.message.toString()) }
 }
 
+fun sendMessageAsFile(
+    receivingUserID: String,
+    fileUrl: String,
+    messageKey: String,
+    typeMessage: String,
+    filename: String
+) {
+
+    val refDialogUser = "$NODE_MESSAGES/$CURRENT_UID/$receivingUserID"
+    val refDialogReceivingUser = "$NODE_MESSAGES/$receivingUserID/$CURRENT_UID"
+
+    val mapMessage = hashMapOf<String, Any>()
+    mapMessage[CHILD_FROM] = CURRENT_UID
+    mapMessage[CHILD_TYPE] = typeMessage
+    mapMessage[CHILD_ID] = messageKey
+    mapMessage[CHILD_TIMESTAMP] = ServerValue.TIMESTAMP
+    mapMessage[CHILD_FILE_URL] = fileUrl
+    mapMessage[CHILD_TEXT] = filename
+
+    val mapDialog = hashMapOf<String, Any>()
+    mapDialog["$refDialogUser/$messageKey"] = mapMessage
+    mapDialog["$refDialogReceivingUser/$messageKey"] = mapMessage
+
+    REF_DATABASE_ROOT
+        .updateChildren(mapDialog)
+        .addOnFailureListener { showToast(it.message.toString()) }
+}
+
+fun uploadFileToStorage(
+    uri: Uri,
+    messageKey: String,
+    receivedID: String,
+    typeMessage: String,
+    filename: String = ""
+) {
+    val path = REF_STORAGE_ROOT.child(
+        FOLDER_FILES
+    ).child(messageKey)
+    putFileToStorage(uri, path) {
+        getUrlFromStorage(path) {
+            sendMessageAsFile(
+                receivedID,
+                it,
+                messageKey,
+                typeMessage,
+                filename
+            )
+        }
+    }
+}
+
+fun getMessageKeyGroup(id: String) = REF_DATABASE_ROOT.child(NODE_GROUPS).child(id).child(NODE_MESSAGES).push().key.toString()
+
 fun sendMessageToGroup(message: String, groupID: String, typeText: String, function: () -> Unit) {
     var refMessages = "$NODE_GROUPS/$groupID/$NODE_MESSAGES"
     val messageKey = REF_DATABASE_ROOT.child(refMessages).push().key
@@ -453,5 +453,54 @@ fun sendMessageToGroup(message: String, groupID: String, typeText: String, funct
     REF_DATABASE_ROOT.child(refMessages).child(messageKey.toString())
         .updateChildren(mapMessage)
         .addOnSuccessListener { function() }
+        .addOnFailureListener { showToast(it.message.toString()) }
+}
+
+fun uploadFileToStorageGroup(
+    uri: Uri,
+    messageKey: String,
+    receivingUserID: String,
+    typeMessage: String,
+    filename: String = ""
+) {
+    val path = REF_STORAGE_ROOT.child(
+        FOLDER_FILES
+    ).child(messageKey)
+    putFileToStorage(uri, path) {
+        getUrlFromStorage(path) {
+            sendMessageAsFileGroup(
+                receivingUserID,
+                it,
+                messageKey,
+                typeMessage,
+                filename
+            )
+        }
+    }
+}
+
+fun sendMessageAsFileGroup(
+    receivingUserID: String,
+    fileUrl: String,
+    groupID: String,
+    typeMessage: String,
+    filename: String = "",
+){
+    val refMessages = "$NODE_GROUPS/$groupID/$NODE_MESSAGES"
+    val messageKey = REF_DATABASE_ROOT.child(refMessages).push().key
+    val mapMessage = hashMapOf<String, Any>()
+    mapMessage[CHILD_FROM] =
+        CURRENT_UID
+    mapMessage[CHILD_TYPE] = typeMessage
+    mapMessage[CHILD_ID] = messageKey.toString()
+    mapMessage[CHILD_TIMESTAMP] = ServerValue.TIMESTAMP
+    mapMessage[CHILD_FILE_URL] = fileUrl
+    mapMessage[CHILD_TEXT] = filename
+
+    val mapDialog = hashMapOf<String, Any>()
+    mapDialog["$refMessages/$messageKey"] = mapMessage
+
+    REF_DATABASE_ROOT.child(refMessages).child(messageKey.toString())
+        .updateChildren(mapDialog)
         .addOnFailureListener { showToast(it.message.toString()) }
 }

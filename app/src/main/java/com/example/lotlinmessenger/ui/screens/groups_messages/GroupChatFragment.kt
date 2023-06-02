@@ -94,7 +94,7 @@ class GroupChatFragment(private val group: CommonModel) :
                         view?.findViewById<EditText>(R.id.chat_input_message)?.setText("")
                         view?.findViewById<ImageView>(R.id.chat_btn_voice)?.colorFilter = null
                         mAppVoiceRecorder.stopRecord { file, messageKey ->
-                            uploadFileToStorage(Uri.fromFile(file),messageKey,group.id, TYPE_MESSAGE_VOICE)
+                            uploadFileToStorageGroup(Uri.fromFile(file),messageKey,group.id, TYPE_MESSAGE_VOICE)
                             mSmoothScrollToPosition = true
                         }
                     }
@@ -124,7 +124,7 @@ class GroupChatFragment(private val group: CommonModel) :
     }
 
     private fun initRecycleView() {
-        mRecyclerView = view?.findViewById<RecyclerView>(R.id.chat_recycle_view)!!
+        mRecyclerView = view?.findViewById(R.id.chat_recycle_view)!!
         mAdapter = GroupChatAdapter()
 
         mRefMessages = REF_DATABASE_ROOT
@@ -220,7 +220,7 @@ class GroupChatFragment(private val group: CommonModel) :
                 CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE -> {
                     val uri = CropImage.getActivityResult(data).uri
                     val messageKey = getMessageKey(group.id)
-                    uploadFileToStorage(uri,messageKey,group.id, TYPE_MESSAGE_IMAGE)
+                    uploadFileToStorageGroup(uri,messageKey,group.id, TYPE_MESSAGE_IMAGE)
                     mSmoothScrollToPosition = true
                 }
 
@@ -228,7 +228,7 @@ class GroupChatFragment(private val group: CommonModel) :
                     val uri = data.data
                     val messageKey = getMessageKey(group.id)
                     val filename = getFilenameFromUri(uri!!)
-                    uploadFileToStorage(uri,messageKey,group.id, TYPE_MESSAGE_FILE,filename)
+                    uploadFileToStorageGroup(uri,messageKey,group.id, TYPE_MESSAGE_FILE,filename)
                     mSmoothScrollToPosition = true
                 }
             }

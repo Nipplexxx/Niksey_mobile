@@ -38,7 +38,7 @@
         android:layout_height="20dp"
         android:layout_marginRight="10dp"
         android:fontFamily="@font/chivo"
-        android:text="Version 6.10.27 Alpha"
+        android:text="Version 6.10.29 Alpha"
         android:textAlignment="textEnd"
         android:textColor="@color/black_80"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -24,7 +24,7 @@
                 android:id="@+id/chat_recycle_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:background="@color/colorMain" />
+                app:lineWidth="2dp"/>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
@@ -33,7 +33,7 @@
             android:id="@+id/chat_input_message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/colorMainContainer"
+            android:layout_marginEnd="50dp"
             android:fontFamily="@font/chivo"
             android:hint="Сообщение"
             android:minHeight="48dp"
@@ -41,14 +41,13 @@
             android:textColor="@color/black_100"
             android:textColorHint="@color/material_drawer_divider"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/chat_btn_send_message"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/chat_btn_attach" />
 
         <ImageView
             android:id="@+id/chat_btn_send_message"
             android:layout_width="50dp"
             android:layout_height="0dp"
-            android:background="@color/colorMainContainer"
             android:padding="@dimen/appPadding"
             android:src="@drawable/img_send"
             android:visibility="gone"
@@ -60,7 +59,6 @@
             android:id="@+id/chat_btn_attach"
             android:layout_width="50dp"
             android:layout_height="0dp"
-            android:background="@color/colorMainContainer"
             android:padding="@dimen/appPadding"
             android:src="@drawable/img_attach"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -71,7 +69,6 @@
             android:id="@+id/chat_btn_voice"
             android:layout_width="50dp"
             android:layout_height="0dp"
-            android:background="@color/colorMainContainer"
             android:padding="@dimen/appPadding"
             android:src="@drawable/img_voice"
             app:layout_constraintBottom_toBottomOf="parent"

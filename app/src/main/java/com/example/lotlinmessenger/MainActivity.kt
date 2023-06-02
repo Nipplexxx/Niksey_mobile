@@ -3,13 +3,10 @@
 package com.example.lotlinmessenger
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -19,7 +16,6 @@ import com.example.lotlinmessenger.ui.objects.AppDrawer
 import com.example.lotlinmessenger.ui.screens.main_list.MainListFragment
 import com.example.lotlinmessenger.ui.screens.register.EnterPhoneNumberFragment
 import com.example.lotlinmessenger.utillits.*
-import com.theartofdev.edmodo.cropper.CropImage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -46,6 +42,9 @@ class MainActivity : AppCompatActivity() {
             AppStates.updateState(AppStates.ONLINE)
             /*Отключение автоповорота*/
             setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+            /*Отключение автоповорота*/
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         }
     }
 
