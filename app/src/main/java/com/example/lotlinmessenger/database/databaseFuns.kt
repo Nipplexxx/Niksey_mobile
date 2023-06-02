@@ -392,7 +392,6 @@ fun sendMessageAsFile(
     typeMessage: String,
     filename: String
 ) {
-
     val refDialogUser = "$NODE_MESSAGES/$CURRENT_UID/$receivingUserID"
     val refDialogReceivingUser = "$NODE_MESSAGES/$receivingUserID/$CURRENT_UID"
 
@@ -459,7 +458,7 @@ fun sendMessageToGroup(message: String, groupID: String, typeText: String, funct
 fun uploadFileToStorageGroup(
     uri: Uri,
     messageKey: String,
-    receivingUserID: String,
+    groupID: String,
     typeMessage: String,
     filename: String = ""
 ) {
@@ -469,7 +468,7 @@ fun uploadFileToStorageGroup(
     putFileToStorage(uri, path) {
         getUrlFromStorage(path) {
             sendMessageAsFileGroup(
-                receivingUserID,
+                groupID,
                 it,
                 messageKey,
                 typeMessage,
@@ -480,27 +479,26 @@ fun uploadFileToStorageGroup(
 }
 
 fun sendMessageAsFileGroup(
-    receivingUserID: String,
-    fileUrl: String,
     groupID: String,
+    fileUrl: String,
+    messageKey: String,
     typeMessage: String,
-    filename: String = "",
-){
-    val refMessages = "$NODE_GROUPS/$groupID/$NODE_MESSAGES"
-    val messageKey = REF_DATABASE_ROOT.child(refMessages).push().key
+    filename: String
+) {
+    val refDialogUser = "$NODE_GROUPS/$groupID/$NODE_MESSAGES"
+
     val mapMessage = hashMapOf<String, Any>()
-    mapMessage[CHILD_FROM] =
-        CURRENT_UID
+    mapMessage[CHILD_FROM] = CURRENT_UID
     mapMessage[CHILD_TYPE] = typeMessage
-    mapMessage[CHILD_ID] = messageKey.toString()
+    mapMessage[CHILD_ID] = messageKey
     mapMessage[CHILD_TIMESTAMP] = ServerValue.TIMESTAMP
     mapMessage[CHILD_FILE_URL] = fileUrl
     mapMessage[CHILD_TEXT] = filename
 
     val mapDialog = hashMapOf<String, Any>()
-    mapDialog["$refMessages/$messageKey"] = mapMessage
+    mapDialog["$refDialogUser/$messageKey"] = mapMessage
 
-    REF_DATABASE_ROOT.child(refMessages).child(messageKey.toString())
+    REF_DATABASE_ROOT
         .updateChildren(mapDialog)
         .addOnFailureListener { showToast(it.message.toString()) }
 }

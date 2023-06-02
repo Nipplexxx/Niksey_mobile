@@ -109,6 +109,11 @@ class SingleChatFragment(private var contact: CommonModel) :
         mBottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
         view?.findViewById<ImageView>(R.id.btn_attach_file)?.setOnClickListener { attachFile() }
         view?.findViewById<ImageView>(R.id.btn_attach_image)?.setOnClickListener { attachImage() }
+        view?.findViewById<ImageView>(R.id.btn_attach_to_close)?.setOnClickListener { attachToclose() }
+    }
+
+    private fun attachToclose() {
+        mBottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
     }
 
     private fun attachFile() {

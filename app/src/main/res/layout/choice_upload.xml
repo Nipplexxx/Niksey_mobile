@@ -4,7 +4,7 @@
     android:id="@+id/bottom_sheet_choice"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:background="@color/colorMainContainer"
+    android:background="@color/colorMain"
     android:orientation="horizontal"
     app:behavior_hideable="true"
     app:behavior_peekHeight="0dp"
@@ -24,5 +24,10 @@
         android:layout_margin="@dimen/app_margin"
         android:src="@drawable/ic_attach_file" />
 
-
+    <ImageView
+        android:id="@+id/btn_attach_to_close"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/app_margin"
+        android:src="@drawable/baseline_close_24" />
 </LinearLayout>
