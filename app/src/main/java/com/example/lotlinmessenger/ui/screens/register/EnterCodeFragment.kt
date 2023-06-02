@@ -1,12 +1,16 @@
 package com.example.lotlinmessenger.ui.screens.register
 
+import android.app.NotificationManager.IMPORTANCE_DEFAULT
+import android.os.Build
 import android.widget.EditText
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import com.chaos.view.PinView
 import com.example.lotlinmessenger.R
 import com.example.lotlinmessenger.database.*
 import com.example.lotlinmessenger.utillits.*
 import com.google.firebase.auth.PhoneAuthProvider
+import android.app.NotificationChannel as NotificationChannel1
 
 class EnterCodeFragment(private val phoneNumber: String, val id: String) :
     Fragment(R.layout.fragment_enter_code) {

@@ -8,19 +8,23 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/toolbar_chat_image"
-        android:layout_width="@dimen/toolbar_image_width"
-        android:layout_height="@dimen/toolbar_image_height"
+        android:layout_width="43dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="2dp"
         android:src="@drawable/default_photo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937" />
 
     <TextView
         android:id="@+id/toolbar_chat_fullname"
         style="@style/normalText"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="12dp"
+        android:layout_marginBottom="2dp"
         android:textColor="@color/white_100"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar_chat_status"
         app:layout_constraintStart_toEndOf="@+id/toolbar_chat_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Аня" />
@@ -28,6 +32,7 @@
     <TextView
         android:id="@+id/toolbar_chat_status"
         style="@style/smallText"
+        android:layout_marginStart="10dp"
         android:textColor="@color/material_drawer_header_selection_text"
         app:layout_constraintStart_toEndOf="@+id/toolbar_chat_image"
         app:layout_constraintTop_toBottomOf="@id/toolbar_chat_fullname"

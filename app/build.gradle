@@ -54,6 +54,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage-ktx:20.2.0'
     implementation 'com.google.firebase:firebase-storage:20.2.0'
     implementation 'com.google.firebase:firebase-functions-ktx:20.3.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.6.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -69,6 +70,8 @@ dependencies {
     implementation 'com.fredporciuncula:phonemoji:1.5.1'
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'com.chaos.view:pinview:1.4.4'
+
+    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
 
     // Add for NavController support
     implementation "com.mikepenz:materialdrawer-nav:7.0.0"
