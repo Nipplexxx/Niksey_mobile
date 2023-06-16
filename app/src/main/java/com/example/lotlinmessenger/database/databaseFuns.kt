@@ -177,6 +177,13 @@ fun setBioToDatabase(newBio: String) {
         }.addOnFailureListener { showToast(it.message.toString()) }
 }
 
+/*Функция удаления аватарки*/
+fun removePhotoUser(function1: String, function: () -> Unit) {
+    REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_PHOTO_URL).removeValue()
+        .addOnFailureListener { showToast(it.message.toString()) }
+        .addOnSuccessListener { function() }
+}
+
 fun setNameToDatabase(fullname: String) {
     REF_DATABASE_ROOT.child(
         NODE_USERS

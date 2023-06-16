@@ -13,6 +13,7 @@
     <string name="settings_default_bio">Текст о себе</string>
     <string name="settings_label_bio">Напишите немного о себе</string>
     <string name="settings_menu_change_name">Изменить имя</string>
+    <string name="settings_menu_delete_photo">Удалить аватарку</string>
     <string name="settings_menu_exit">Выход</string>
     <string name="cd_register_img">cd_register_img</string>
     <string name="register_text_enter_code">Введите код</string>
@@ -32,6 +33,7 @@
     <string name="clear_chat">Очистить чат</string>
     <string name="remove_chat">Убрать чат</string>
     <string name="delete_chat">Удалить чат</string>
+    <string name="out_chat">Выйти из чата</string>
     <string name="create_group">Создать группу</string>
     <string name="personal_account">Личный кабинет</string>
     <string name="information">Информация</string>
@@ -43,6 +45,7 @@
     <string name="chat_cleared">Чат очищен</string>
     <string name="chat_deleted">Чат удален</string>
     <string name="chat_remove">Чат убран</string>
+    <string name="remove_photo_user">Аватарка удалена</string>
     <string name="enter_a_message">Введите сообщение</string>
     <string name="record">Запись</string>
     <string name="enter_a_name">Введите имя</string>

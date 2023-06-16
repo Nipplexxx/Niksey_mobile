@@ -11,6 +11,11 @@
                     android:icon="@drawable/img_edit"
                     app:showAsAction="never"/>
                 <item
+                    android:id="@+id/settings_menu_delete_photo"
+                    android:title="@string/settings_menu_delete_photo"
+                    android:icon="@drawable/img_delete"
+                    app:showAsAction="never"/>
+                <item
                     android:id="@+id/settings_menu_exit"
                     android:title="@string/settings_menu_exit"
                     android:icon="@drawable/img_exit"

@@ -13,12 +13,7 @@
                 <item
                     android:id="@+id/menu_remove_chat"
                     android:icon="@drawable/img_remove_chat"
-                    android:title="@string/remove_chat"
-                    app:showAsAction="never" />
-                <item
-                    android:id="@+id/menu_delete_chat"
-                    android:icon="@drawable/img_delete"
-                    android:title="@string/delete_chat"
+                    android:title="@string/out_chat"
                     app:showAsAction="never" />
             </menu>
     </item>

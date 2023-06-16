@@ -1,6 +1,5 @@
 package com.example.lotlinmessenger.ui.screens.settings
 
-import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.view.Menu
@@ -11,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.lotlinmessenger.R
 import com.example.lotlinmessenger.database.*
 import com.example.lotlinmessenger.ui.screens.base_fragment.BaseFragment
+import com.example.lotlinmessenger.ui.screens.main_list.MainListFragment
 import com.example.lotlinmessenger.utillits.*
 import com.mikepenz.materialize.util.KeyboardUtil
 import com.theartofdev.edmodo.cropper.CropImage
@@ -78,6 +78,10 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.settings_menu_delete_photo -> removePhotoUser(USER.id){
+                showToast(getString(R.string.remove_photo_user))
+                restartActivity()
+            }
             R.id.settings_menu_exit -> {
                 AppStates.updateState(AppStates.OFFLINE)
                 AUTH.signOut()

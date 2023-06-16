@@ -255,25 +255,29 @@ class GroupChatFragment(private val group: CommonModel) :
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         /* Создания выпадающего меню*/
-        activity?.menuInflater?.inflate(R.menu.single_chat_action_menu, menu)
+        if ("$NODE_GROUPS/${group.id}/$NODE_MEMBERS/$CURRENT_UID" == USER_MEMBER) {
+            activity?.menuInflater?.inflate(R.menu.single_chat_action_menu, menu)
+        } else {
+            activity?.menuInflater?.inflate(R.menu.group_chat_action_menu, menu)
+        }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         /* Слушатель выбора пунктов выпадающего меню */
-        when (item.itemId) {
-            R.id.menu_clear_chat -> clearChatGroup(group.id){
-                showToast(getString(R.string.chat_cleared))
-                replaceFragment(MainListFragment())
+            when (item.itemId) {
+                R.id.menu_clear_chat -> clearChatGroup(group.id){
+                    showToast(getString(R.string.chat_cleared))
+                    replaceFragment(MainListFragment())
+                }
+                R.id.menu_remove_chat -> removeChatGroup(group.id){
+                    showToast(getString(R.string.chat_remove))
+                    replaceFragment(MainListFragment())
+                }
+                R.id.menu_delete_chat -> deleteChatGroup(group.id){
+                    showToast(getString(R.string.chat_deleted))
+                    replaceFragment(MainListFragment())
+                }
             }
-            R.id.menu_remove_chat -> removeChatGroup(group.id){
-                showToast(getString(R.string.chat_remove))
-                replaceFragment(MainListFragment())
-            }
-            R.id.menu_delete_chat -> deleteChatGroup(group.id){
-                showToast(getString(R.string.chat_deleted))
-                replaceFragment(MainListFragment())
-            }
-        }
         return true
     }
 }
