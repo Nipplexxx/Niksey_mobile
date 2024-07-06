@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Kollibri</string>
+    <string name="app_name">Niksey</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID</string>
+    <string name="auth_failed">Authentication Failed</string>
     <string name="hello_blank_fragment">Привет, пустой фрагмент</string>
     <string name="settings_default_username">Андрей Петров</string>
     <string name="settings_default_status">В сети</string>
@@ -52,6 +54,7 @@
     <string name="welcome">Добро пожаловать</string>
     <string name="voice_message">голосовое сообщение</string>
     <string name="text_123456">123456</string>
+    <string name="anonymous_sign_in">Anonymous</string>
 
     <plurals name="count_members">
         <item quantity="one">%d участник</item>

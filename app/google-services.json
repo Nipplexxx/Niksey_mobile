@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "21659621122",
-    "firebase_url": "https://kollibri-2b50c-default-rtdb.firebaseio.com",
-    "project_id": "kollibri-2b50c",
-    "storage_bucket": "kollibri-2b50c.appspot.com"
+    "project_number": "638294860369",
+    "firebase_url": "https://niksey-3deb1-default-rtdb.firebaseio.com",
+    "project_id": "niksey-3deb1",
+    "storage_bucket": "niksey-3deb1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:21659621122:android:6e480d3a7102dabb3e941b",
+        "mobilesdk_app_id": "1:638294860369:android:48247b057ca3a0d1c54e70",
         "android_client_info": {
-          "package_name": "com.example.lotlinmessenger"
+          "package_name": "com.example.niksey"
         }
       },
       "oauth_client": [
         {
-          "client_id": "21659621122-19b87a53l4u75t3m4qjmb6b9j6sb3cop.apps.googleusercontent.com",
+          "client_id": "638294860369-bmj5c69mfuqe2at16hrici334i54bbja.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.niksey",
+            "certificate_hash": "ab113efc428ad104c798dfffa531d065e191a9d1"
+          }
+        },
+        {
+          "client_id": "638294860369-862bfmfda32r9f4ou0qgasf5jq0edvvj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC0ziV0lyVXKWwUa5C9S4x-f03S2WtiWGw"
+          "current_key": "AIzaSyAS4sxSDogNxbpsH3ZKC9oFVNV800MsHDc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "21659621122-19b87a53l4u75t3m4qjmb6b9j6sb3cop.apps.googleusercontent.com",
+              "client_id": "638294860369-862bfmfda32r9f4ou0qgasf5jq0edvvj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

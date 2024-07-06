@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme -->
-    <style name="Theme.LotlinMessenger" parent="MaterialDrawerTheme.Light">
+    <style name="Theme.Niksey" parent="MaterialDrawerTheme.Light">
         <!-- Primary brand color -->
         <item name="colorPrimary">@drawable/head</item>
         <!-- Primary color profile picture -->

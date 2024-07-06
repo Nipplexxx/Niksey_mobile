@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         gradlePluginPortal()
     }
 }
-rootProject.name = "LotlinMessenger"
+rootProject.name = "Niksey"
 include ':app'
