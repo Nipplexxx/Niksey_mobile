@@ -6,12 +6,12 @@ import android.view.View
 import android.widget.ImageView
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.niksey.R
-import com.example.niksey.ui.screens.phone_book.ContactsFragment
-import com.example.niksey.ui.screens.other_fragment.InformationFragment
+import com.example.niksey.database.USER
 import com.example.niksey.ui.screens.groups_messages.AddContactsFragment
+import com.example.niksey.ui.screens.other_fragment.InformationFragment
+import com.example.niksey.ui.screens.phone_book.ContactsFragment
 import com.example.niksey.ui.screens.settings.SettingsFragment
 import com.example.niksey.utillits.APP_ACTIVITY
-import com.example.niksey.database.USER
 import com.example.niksey.utillits.downloadAndSetImage
 import com.example.niksey.utillits.replaceFragment
 import com.mikepenz.materialdrawer.AccountHeader
