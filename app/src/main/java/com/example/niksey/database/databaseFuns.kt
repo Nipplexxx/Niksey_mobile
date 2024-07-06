@@ -17,8 +17,7 @@ import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 import java.io.File
-import java.util.ArrayList
-import java.util.HashMap
+import java.util.UUID
 
 fun initFirebase() {
     /* Инициализация базы данных Firebase */
@@ -202,29 +201,31 @@ fun setNameToDatabase(fullname: String) {
         }.addOnFailureListener { showToast(it.message.toString()) }
 }
 
-fun getMessageKeyPrivate(id: String) = REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID).child(id).push().key.toString()
+fun getMessageKeyPrivate(id: String) =
+    REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID).child(id).push().key.toString()
 
-fun CircleImageView.donwloadAndSetImage(url:String) {
+fun CircleImageView.donwloadAndSetImage(url: String) {
     Picasso.get()
         .load(url)
         .placeholder(R.drawable.default_photo)
         .into(this)
 }
+
 /*Функции высшего порядка*/
-inline fun putUrlToDatabase(url: String, crossinline  function: () -> Unit) {
+inline fun putUrlToDatabase(url: String, crossinline function: () -> Unit) {
     REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID)
         .child(CHILD_PHOTO_URL).setValue(url)
         .addOnSuccessListener { function() }
         .addOnFailureListener { showToast(it.message.toString()) }
 }
 
-inline fun getUrlFromStorage(path: StorageReference,crossinline  function: (url: String) -> Unit) {
+inline fun getUrlFromStorage(path: StorageReference, crossinline function: (url: String) -> Unit) {
     path.downloadUrl
         .addOnSuccessListener { function(it.toString()) }
         .addOnFailureListener { showToast(it.message.toString()) }
 }
 
-inline fun putImageToStorage(uri: Uri, path: StorageReference,crossinline function: () -> Unit) {
+inline fun putImageToStorage(uri: Uri, path: StorageReference, crossinline function: () -> Unit) {
     path.putFile(uri)
         .addOnSuccessListener { function() }
         .addOnFailureListener { showToast(it.message.toString()) }
@@ -327,11 +328,13 @@ fun clearChatGroup(id: String, function: () -> Unit) {
         }
         .addOnFailureListener { showToast(it.message.toString()) }
 }
+
 fun removeChatGroup(id: String, function: () -> Unit) {
     REF_DATABASE_ROOT.child(NODE_MAIN_LIST).child(CURRENT_UID).child(id).removeValue()
         .addOnFailureListener { showToast(it.message.toString()) }
         .addOnSuccessListener { function() }
 }
+
 fun createGroupToDatabase(
     nameGroup: String,
     uri: Uri,
@@ -442,7 +445,8 @@ fun uploadFileToStorage(
     }
 }
 
-fun getMessageKeyGroup(id: String) = REF_DATABASE_ROOT.child(NODE_GROUPS).child(id).child(NODE_MESSAGES).push().key.toString()
+fun getMessageKeyGroup(id: String) =
+    REF_DATABASE_ROOT.child(NODE_GROUPS).child(id).child(NODE_MESSAGES).push().key.toString()
 
 fun sendMessageToGroup(message: String, groupID: String, typeText: String, function: () -> Unit) {
     var refMessages = "$NODE_GROUPS/$groupID/$NODE_MESSAGES"
@@ -508,4 +512,13 @@ fun sendMessageAsFileGroup(
     REF_DATABASE_ROOT
         .updateChildren(mapDialog)
         .addOnFailureListener { showToast(it.message.toString()) }
+}
+fun generateRandomUsername(): String {
+    return "user" + UUID.randomUUID().toString().substring(0, 8)
+}
+
+fun generateRandomFullname(): String {
+    val names = listOf("John", "Jane", "Alex", "Chris", "Sam", "Taylor", "Jordan", "Pat")
+    val surnames = listOf("Smith", "Doe", "Johnson", "Brown", "Williams", "Jones")
+    return names.random() + " " + surnames.random()
 }

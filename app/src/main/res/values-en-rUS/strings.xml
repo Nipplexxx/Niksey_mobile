@@ -54,6 +54,9 @@
     <string name="voice_message">voice message</string>
     <string name="text_123456">123456</string>
     <string name="anonymous_sign_in">Anonymous</string>
+    <string name="settings_default_number">+1 123 456-78-90</string>
+    <string name="settings_default_password">Password</string>
+    <string name="settings_default_email">Email</string>
 
     <plurals name="count_members" tools:ignore="UnusedQuantity">
         <item quantity="one">%d participant</item>

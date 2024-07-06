@@ -1,9 +1,13 @@
 package com.example.niksey.utillits
 
-import com.example.niksey.database.*
+import com.example.niksey.database.AUTH
+import com.example.niksey.database.CHILD_STATE
+import com.example.niksey.database.CURRENT_UID
+import com.example.niksey.database.NODE_USERS
+import com.example.niksey.database.REF_DATABASE_ROOT
+import com.example.niksey.database.USER
 
 enum class AppStates(val state: String) {
-    /* Класс перечисление состояний приложения*/
     ONLINE("online"),
     OFFLINE("offline"),
     TYPING("prints");
@@ -15,6 +19,14 @@ enum class AppStates(val state: String) {
                     .setValue(appStates.state)
                     .addOnSuccessListener { USER.state = appStates.state }
                     .addOnFailureListener { }
+            }
+        }
+
+        fun getCurrentState(): AppStates {
+            return when (USER.state) {
+                ONLINE.state -> ONLINE
+                OFFLINE.state -> OFFLINE
+                else -> OFFLINE
             }
         }
     }

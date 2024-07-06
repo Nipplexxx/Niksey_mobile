@@ -55,6 +55,9 @@
     <string name="voice_message">голосовое сообщение</string>
     <string name="text_123456">123456</string>
     <string name="anonymous_sign_in">Anonymous</string>
+    <string name="settings_default_number">+1 123 456-78-90</string>
+    <string name="settings_default_password">Пароль</string>
+    <string name="settings_default_email">Почта</string>
 
     <plurals name="count_members">
         <item quantity="one">%d участник</item>

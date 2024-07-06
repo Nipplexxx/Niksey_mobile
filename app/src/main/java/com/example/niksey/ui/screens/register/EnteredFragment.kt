@@ -10,12 +10,17 @@ import androidx.fragment.app.Fragment
 import com.example.niksey.MainActivity
 import com.example.niksey.R
 import com.example.niksey.database.AUTH
+import com.example.niksey.database.NODE_USERS
+import com.example.niksey.database.REF_DATABASE_ROOT
+import com.example.niksey.database.generateRandomFullname
+import com.example.niksey.database.generateRandomUsername
+import com.example.niksey.models.UserModel
 import com.example.niksey.utillits.showToast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.SignInButton
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.GoogleAuthProvider
 
 class EnteredFragment : Fragment(R.layout.fragment_entered) {
@@ -87,8 +92,20 @@ class EnteredFragment : Fragment(R.layout.fragment_entered) {
         AUTH.signInAnonymously().addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Log.d("EnteredFragment", "Anonymous sign-in successful")
-                showToast(getString(R.string.welcome))
-                navigateToMainActivity()
+                val randomUsername = generateRandomUsername()
+                val randomFullname = generateRandomFullname()
+
+                val uid = AUTH.currentUser?.uid ?: ""
+                val user = UserModel(id = uid, username = randomUsername, fullname = randomFullname)
+
+                REF_DATABASE_ROOT.child(NODE_USERS).child(uid).setValue(user)
+                    .addOnSuccessListener {
+                        showToast(getString(R.string.welcome))
+                        navigateToMainActivity()
+                    }
+                    .addOnFailureListener {
+                        showToast(it.message.toString())
+                    }
             } else {
                 Log.e("EnteredFragment", "Anonymous sign-in failed", task.exception)
                 showToast(task.exception?.message.toString())
