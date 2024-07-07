@@ -176,6 +176,54 @@ fun setBioToDatabase(newBio: String) {
         }.addOnFailureListener { showToast(it.message.toString()) }
 }
 
+fun setEmailToDatabase(newEmail: String) {
+    REF_DATABASE_ROOT.child(NODE_USERS).child(
+        CURRENT_UID
+    ).child(CHILD_EMAIL)
+        .setValue(newEmail)
+        .addOnSuccessListener {
+            showToast(
+                APP_ACTIVITY.getString(
+                    R.string.toast_data_update
+                )
+            )
+            USER.email = newEmail
+            APP_ACTIVITY.supportFragmentManager.popBackStack()
+        }.addOnFailureListener { showToast(it.message.toString()) }
+}
+
+fun setPasswordToDatabase(newPassword: String) {
+    REF_DATABASE_ROOT.child(NODE_USERS).child(
+        CURRENT_UID
+    ).child(CHILD_PASSWORD)
+        .setValue(newPassword)
+        .addOnSuccessListener {
+            showToast(
+                APP_ACTIVITY.getString(
+                    R.string.toast_data_update
+                )
+            )
+            USER.password = newPassword
+            APP_ACTIVITY.supportFragmentManager.popBackStack()
+        }.addOnFailureListener { showToast(it.message.toString()) }
+}
+
+fun setPhoneToDatabase(newPhone: String) {
+    REF_DATABASE_ROOT.child(NODE_USERS).child(
+        CURRENT_UID
+    ).child(CHILD_PHONE)
+        .setValue(newPhone)
+        .addOnSuccessListener {
+            showToast(
+                APP_ACTIVITY.getString(
+                    R.string.toast_data_update
+                )
+            )
+            USER.phone = newPhone
+            APP_ACTIVITY.supportFragmentManager.popBackStack()
+        }.addOnFailureListener { showToast(it.message.toString()) }
+}
+
 /*Функция удаления аватарки*/
 fun removePhotoUser(function1: String, function: () -> Unit) {
     REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_PHOTO_URL).removeValue()

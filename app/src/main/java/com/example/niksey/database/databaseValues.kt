@@ -26,6 +26,8 @@ import com.google.firebase.storage.StorageReference
     const val CHILD_PHONE = "phone"
     const val CHILD_FULLNAME = "fullname"
     const val CHILD_BIO = "bio"
+    const val CHILD_EMAIL = "email"
+    const val CHILD_PASSWORD = "password"
     const val CHILD_PHOTO_URL = "photoUrl"
     const val FOLDER_FILES = "messages_files"
     const val CHILD_STATE = "state"

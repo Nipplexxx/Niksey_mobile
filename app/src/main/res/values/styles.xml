@@ -91,4 +91,13 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="AppButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:backgroundTint">@color/purple_300</item>
+    </style>
+
 </resources>

@@ -55,6 +55,12 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
             ?.donwloadAndSetImage(USER.photoUrl)
         view?.findViewById<TextView>(R.id.settings_email)?.text = maskString(USER.email)
         view?.findViewById<TextView>(R.id.settings_password)?.text = maskString(USER.password)
+        view?.findViewById<ConstraintLayout>(R.id.settings_btn_change_email)
+            ?.setOnClickListener { replaceFragment(ChangeEmailFragment()) }
+        view?.findViewById<ConstraintLayout>(R.id.settings_btn_change_password)
+            ?.setOnClickListener { replaceFragment(ChangePasswordFragment()) }
+        view?.findViewById<ConstraintLayout>(R.id.settings_btn_change_number_phone)
+            ?.setOnClickListener { replaceFragment(ChangePhoneFragment()) }
     }
 
     private fun changePhotoUser() {
@@ -110,4 +116,5 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
         }
         return true
     }
+
 }
