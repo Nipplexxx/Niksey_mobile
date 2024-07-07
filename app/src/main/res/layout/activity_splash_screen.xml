@@ -11,6 +11,7 @@
         android:id="@+id/ivFavicon"
         android:layout_width="189dp"
         android:layout_height="203dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

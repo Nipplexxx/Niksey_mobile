@@ -57,6 +57,7 @@
     <string name="settings_default_password">Password</string>
     <string name="settings_default_email">Email</string>
     <string name="default_web_client_id">638294860369-862bfmfda32r9f4ou0qgasf5jq0edvvj.apps.googleusercontent.com</string>
+    <string name="todo">TODO</string>
 
     <plurals name="count_members">
         <item quantity="one">%d participant</item>
