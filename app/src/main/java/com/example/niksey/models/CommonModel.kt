@@ -21,4 +21,22 @@ data class CommonModel(
     override fun equals(other: Any?): Boolean {
         return (other as CommonModel).id == id
     }
+
+    override fun hashCode(): Int {
+        var result = id.hashCode()
+        result = 31 * result + username.hashCode()
+        result = 31 * result + bio.hashCode()
+        result = 31 * result + fullname.hashCode()
+        result = 31 * result + state.hashCode()
+        result = 31 * result + phone.hashCode()
+        result = 31 * result + photoUrl.hashCode()
+        result = 31 * result + text.hashCode()
+        result = 31 * result + type.hashCode()
+        result = 31 * result + from.hashCode()
+        result = 31 * result + timeStamp.hashCode()
+        result = 31 * result + fileUrl.hashCode()
+        result = 31 * result + lastMessage.hashCode()
+        result = 31 * result + choice.hashCode()
+        return result
+    }
 }

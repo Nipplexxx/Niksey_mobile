@@ -21,6 +21,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
 class EnteredFragment : Fragment(R.layout.fragment_entered) {
@@ -75,7 +76,7 @@ class EnteredFragment : Fragment(R.layout.fragment_entered) {
     @SuppressLint("LongLogTag")
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount?) {
         val credential = GoogleAuthProvider.getCredential(acct?.idToken, null)
-        AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
+        FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Log.d("EnteredFragment", "Firebase authentication with Google successful")
                 showToast(getString(R.string.welcome))

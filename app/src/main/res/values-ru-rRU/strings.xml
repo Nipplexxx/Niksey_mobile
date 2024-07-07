@@ -2,8 +2,7 @@
 <resources>
     <string name="app_name">Niksey</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID</string>
-    <string name="auth_failed">Authentication Failed</string>
+    <string name="auth_failed">Не удалось выполнить проверку подлинности</string>
     <string name="hello_blank_fragment">Привет, пустой фрагмент</string>
     <string name="settings_default_username">Андрей Петров</string>
     <string name="settings_default_status">В сети</string>
@@ -58,6 +57,7 @@
     <string name="settings_default_number">+1 123 456-78-90</string>
     <string name="settings_default_password">Пароль</string>
     <string name="settings_default_email">Почта</string>
+    <string name="default_web_client_id">638294860369-862bfmfda32r9f4ou0qgasf5jq0edvvj.apps.googleusercontent.com</string>
 
     <plurals name="count_members">
         <item quantity="one">%d участник</item>
