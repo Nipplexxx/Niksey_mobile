@@ -38,7 +38,7 @@
     <string name="create_group">Create a group</string>
     <string name="personal_account">Personal account</string>
     <string name="information">Information</string>
-    <string name="my_contacts">My contacts</string>
+    <string name="my_contacts">Contacts users</string>
     <string name="create_a_group">Create a group</string>
     <string name="contacts">Contacts</string>
     <string name="add_a_participant">Add a participant</string>
@@ -57,7 +57,7 @@
     <string name="settings_default_password">Password</string>
     <string name="settings_default_email">Email</string>
     <string name="default_web_client_id">638294860369-862bfmfda32r9f4ou0qgasf5jq0edvvj.apps.googleusercontent.com</string>
-    <string name="todo">TODO</string>
+    <string name="todo" translatable="false">TODO</string>
 
     <plurals name="count_members">
         <item quantity="one">%d participant</item>

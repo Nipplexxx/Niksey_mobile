@@ -16,15 +16,13 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.DatabaseReference
 import de.hdodenhof.circleimageview.CircleImageView
 
-
 class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
 
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mAdapter: FirebaseRecyclerAdapter<CommonModel, ContactsHolder>
-    private lateinit var mRefContacts: DatabaseReference
     private lateinit var mRefUsers: DatabaseReference
-    private lateinit var mRefUsersListener:AppValueEventListener
-    private  var mapListeners = hashMapOf<DatabaseReference,AppValueEventListener>()
+    private lateinit var mRefUsersListener: AppValueEventListener
+    private var mapListeners = hashMapOf<DatabaseReference, AppValueEventListener>()
 
     override fun onResume() {
         super.onResume()
@@ -34,65 +32,40 @@ class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
     }
 
     private fun initRecycleView() {
-        mRecyclerView = view?.findViewById(R.id.contacts_recycle_view) !!
-        mRefContacts = REF_DATABASE_ROOT.child(
-            NODE_PHONES_CONTACTS
-        ).child(CURRENT_UID)
+        mRecyclerView = view?.findViewById(R.id.contacts_recycle_view)!!
+        mRefUsers = REF_DATABASE_ROOT.child(NODE_USERS)
 
-        //Настройка для адаптера, где указываем какие данные и откуда получать
+        // Set up the adapter with the query for all users
         val options = FirebaseRecyclerOptions.Builder<CommonModel>()
-            .setQuery(mRefContacts, CommonModel::class.java)
+            .setQuery(mRefUsers, CommonModel::class.java)
             .build()
 
-        //Адаптер принимает данные, отображает в холдере
+        // Adapter to handle displaying user data
         mAdapter = object : FirebaseRecyclerAdapter<CommonModel, ContactsHolder>(options) {
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsHolder {
-                //Запускается тогда когда адаптер получает доступ к ViewGroup
+                // Inflate the contact item layout
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.contact_item, parent, false)
-                return ContactsHolder(
-                    view
-                )
+                return ContactsHolder(view)
             }
 
-            // Заполняет holder
-            override fun onBindViewHolder(
-                holder: ContactsHolder,
-                position: Int,
-                model: CommonModel
-            ) {
-                mRefUsers = REF_DATABASE_ROOT.child(
-                    NODE_USERS
-                ).child(model.id)
+            override fun onBindViewHolder(holder: ContactsHolder, position: Int, model: CommonModel) {
+                // Bind the user data to the holder
+                holder.name.text = if (model.fullname.isEmpty()) model.username else model.fullname
+                holder.status.text = model.state
+                holder.photo.downloadAndSetImage(model.photoUrl)
 
-                mRefUsersListener = AppValueEventListener {
-                    val contact = it.getCommonModel()
-
-                    if (contact.fullname.isEmpty()){
-                        holder.name.text = model.fullname
-                    } else holder.name.text = contact.fullname
-
-                    holder.status.text = contact.state
-                    holder.photo.downloadAndSetImage(contact.photoUrl)
-                    holder.itemView.setOnClickListener { replaceFragment(
-                        SingleChatFragment(
-                            model
-                        )
-                    ) }
+                holder.itemView.setOnClickListener {
+                    replaceFragment(SingleChatFragment(model))
                 }
-
-                mRefUsers.addValueEventListener(mRefUsersListener)
-                mapListeners[mRefUsers] = mRefUsersListener
             }
         }
 
         mRecyclerView.adapter = mAdapter
         mAdapter.startListening()
-
     }
 
-    // Холдер для захвата ViewGroup
     class ContactsHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name: TextView = view.findViewById(R.id.contact_fullname)
         val status: TextView = view.findViewById(R.id.contact_status)
@@ -102,10 +75,8 @@ class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
     override fun onPause() {
         super.onPause()
         mAdapter.stopListening()
-        println()
         mapListeners.forEach {
             it.key.removeEventListener(it.value)
         }
-        println()
     }
 }
